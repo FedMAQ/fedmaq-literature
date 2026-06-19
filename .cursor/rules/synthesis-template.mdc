@@ -1,0 +1,16 @@
+---
+description: Cross-paper synthesis format
+globs: syntheses/**
+alwaysApply: false
+---
+
+# Synthesis Template
+
+Each `syntheses/drafts/{topic}.md` includes:
+
+1. **Topic scope** — one paragraph
+2. **Claims** — numbered claims with supporting paper slugs
+3. **Evidence table** — claim | papers | key finding
+4. **Open gaps** — what remains unresolved for FedMAQ
+
+Use only **approved** summaries (`summaries/{slug}.md`) as sources.

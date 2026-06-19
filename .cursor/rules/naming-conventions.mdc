@@ -1,0 +1,15 @@
+---
+description: Paper slug and bibkey naming from PDF filenames
+alwaysApply: true
+---
+
+# Naming Conventions
+
+**Slug:** lowercase `{leadauthor}-{year}-{short-title}` derived from PDF filename, e.g. `he-2025-dynfed` from `He et al. - 2025 - DynFed...pdf`.
+
+**Paths:**
+- PDF: `papers/<original-filename>.pdf`
+- Markdown: `markdown/{slug}/paper.md`, `meta.yaml`
+- Summary: `summaries/drafts/{slug}.md` then `summaries/{slug}.md`
+
+Align bibkeys in `bib/references.bib` with slugs where possible.

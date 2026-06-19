@@ -1,0 +1,11 @@
+---
+description: RAG writes drafts only; cross-repo edits via Cursor with target repo rules
+alwaysApply: true
+---
+
+# RAG Boundaries
+
+- LLM output goes to `summaries/drafts/` or `syntheses/drafts/` only.
+- Never auto-promote to `summaries/{slug}.md` or `syntheses/{topic}.md` — human runs `fedmaq-lit approve`.
+- RAG does not directly edit `fedmaq-experiments`, `fedmaq-analyses`, or `fedmaq-manuscript`.
+- Cross-repo changes: Cursor session in target repo using that repo's `.cursor/rules/`.
