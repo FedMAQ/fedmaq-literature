@@ -55,6 +55,8 @@ def convert_pdf(pdf_path: Path) -> ConvertOutput:
 
     pipeline_options = PdfPipelineOptions()
     pipeline_options.do_formula_enrichment = True
+    pipeline_options.accelerator_options.num_threads = 1
+    pipeline_options.ocr_batch_size = 1
     converter = DocumentConverter(
         format_options={
             InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)

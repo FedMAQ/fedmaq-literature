@@ -1,0 +1,19 @@
+slug: joseph-2026-air-quality
+pdf: papers/Joseph et al. - 2026 - Air Quality Prediction Using Communication-Efficient
+  Federated Learning with Compressed Deep Learnin.pdf
+converter: docling
+converted_at: '2026-06-21T10:17:35.257817+00:00'
+page_count: 6
+char_count: 34776
+qa:
+  passed: true
+  confidence: 0.9502809713610328
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 34776
+  page_count: 6
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9502809713610328

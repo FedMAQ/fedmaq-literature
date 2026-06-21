@@ -1,0 +1,19 @@
+slug: mao-2023-power-load
+pdf: papers/Mao et al. - 2023 - Communication-Efficient Federated Learning for Power
+  Load Forecasting in Electric IoTs.pdf
+converter: docling
+converted_at: '2026-06-21T08:45:59.212705+00:00'
+page_count: 10
+char_count: 49301
+qa:
+  passed: true
+  confidence: 0.9632680749303291
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 49301
+  page_count: 10
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9632680749303291

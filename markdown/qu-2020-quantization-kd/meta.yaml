@@ -1,0 +1,19 @@
+slug: qu-2020-quantization-kd
+pdf: papers/Qu et al. - 2020 - Quantization and Knowledge Distillation for Efficient
+  Federated Learning on Edge Devices.pdf
+converter: docling
+converted_at: '2026-06-21T08:52:21.606523+00:00'
+page_count: 6
+char_count: 34530
+qa:
+  passed: true
+  confidence: 0.96282692706766
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 34530
+  page_count: 6
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.96282692706766

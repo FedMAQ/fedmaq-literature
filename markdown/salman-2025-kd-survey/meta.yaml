@@ -1,0 +1,19 @@
+slug: salman-2025-kd-survey
+pdf: papers/Salman et al. - 2025 - Knowledge distillation in federated learning a
+  comprehensive survey.pdf
+converter: docling
+converted_at: '2026-06-21T08:57:52.986383+00:00'
+page_count: 40
+char_count: 72104
+qa:
+  passed: true
+  confidence: 0.9670948285528774
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 72104
+  page_count: 40
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9670948285528774

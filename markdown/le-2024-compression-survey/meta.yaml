@@ -1,0 +1,19 @@
+slug: le-2024-compression-survey
+pdf: papers/Le et al. - 2024 - A Survey of Model Compression and Its Feedback Mechanism
+  in Federated Learning.pdf
+converter: docling
+converted_at: '2026-06-21T08:35:26.053627+00:00'
+page_count: 6
+char_count: 43494
+qa:
+  passed: true
+  confidence: 0.9609537515205275
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 43494
+  page_count: 6
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9609537515205275

@@ -1,0 +1,19 @@
+slug: abdulla-2024-smart-meter
+pdf: papers/Abdulla et al. - 2024 - Smart meter-based energy consumption forecasting
+  for smart cities using adaptive federated learning.pdf
+converter: docling
+converted_at: '2026-06-21T08:32:58.376920+00:00'
+page_count: 13
+char_count: 77610
+qa:
+  passed: true
+  confidence: 0.959868856218048
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 77610
+  page_count: 13
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.959868856218048

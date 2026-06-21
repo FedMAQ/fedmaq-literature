@@ -1,0 +1,19 @@
+slug: wu-2022-fedkd
+pdf: papers/Wu et al. - 2022 - Communication-efficient federated learning via knowledge
+  distillation.pdf
+converter: docling
+converted_at: '2026-06-21T09:54:02.550186+00:00'
+page_count: 8
+char_count: 54327
+qa:
+  passed: true
+  confidence: 0.9479834300775589
+  mean_grade: excellent
+  low_grade: good
+  char_count: 54327
+  page_count: 8
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: good
+  mean_score: 0.9479834300775589

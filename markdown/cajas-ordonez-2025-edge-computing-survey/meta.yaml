@@ -1,0 +1,19 @@
+slug: cajas-ordonez-2025-edge-computing-survey
+pdf: papers/Cajas Ordóñez et al. - 2025 - Intelligent Edge Computing and Machine Learning
+  A Survey of Optimization and Applications.pdf
+converter: docling
+converted_at: '2026-06-21T08:33:55.289821+00:00'
+page_count: 40
+char_count: 78481
+qa:
+  passed: true
+  confidence: 0.974812182953349
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 78481
+  page_count: 40
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.974812182953349
