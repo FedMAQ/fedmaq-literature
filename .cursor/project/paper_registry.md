@@ -11,7 +11,7 @@ Track conversion, indexing, and summary status. Run `fedmaq-lit ingest --slug <s
 | song-2024-feddistill                     | Song et al. - 2024 - FedDistill...                                                                | FedDistill | ready      | none    | kd                  |
 | liu-2023-adagq                           | Liu et al. - 2023 - Communication-Efficient Federated Learning                                    | AdaGQ      | ready      | none    | adaptive            |
 | cui-2026-laq-hc                          | Cui et al. - 2026 - Lightweight Adaptive Quantization...                                          | LAQ-HC     | none       | none    | adaptive            |
-| he-2025-dynfed                           | He et al. - 2025 - DynFed...                                                                      | DynFed     | ready      | none    | sota, kd            |
+| he-2025-dynfed                           | He et al. - 2025 - DynFed...                                                                      | DynFed     | none       | none    | sota, kd            |
 | wang-2026-adadq-kd                       | Wang et al. - 2026 - AdaDQ-KD...                                                                  | AdaDQ-KD   | none       | none    | sota, kd            |
 | he-2025-feddt                            | He et al. - 2025 - FedDT...                                                                       | FedDT      | none       | none    | sota, kd            |
 | hinton-2015-distillation                 | Hinton et al. - 2015 - Distilling the Knowledge...                                                | —          | ready      | none    | kd, survey          |
