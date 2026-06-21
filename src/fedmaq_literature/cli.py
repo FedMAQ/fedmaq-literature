@@ -12,16 +12,31 @@ from fedmaq_literature.registry import parse_registry
 def _cmd_convert(args: argparse.Namespace) -> int:
     from fedmaq_literature.convert import convert_paper
     from fedmaq_literature.registry import parse_registry
+    from fedmaq_literature.paths import markdown_dir
 
     if not args.slug and not getattr(args, "all", False):
         print("error: either --slug or --all is required", file=sys.stderr)
         return 1
 
+    force_convert = getattr(args, "force_convert", False)
+
     if args.slug:
+        entries = parse_registry()
+        entry = next((e for e in entries if e.slug == args.slug), None)
+        if entry and entry.conversion == "ready" and not force_convert:
+            if (markdown_dir() / args.slug / "paper.md").is_file():
+                print(
+                    f"Paper '{args.slug}' is already converted and ready. Skipping conversion."
+                )
+                return 0
         slugs = [args.slug]
     else:
         entries = parse_registry()
-        slugs = [entry.slug for entry in entries if entry.conversion != "ready"]
+        if force_convert:
+            slugs = [entry.slug for entry in entries]
+        else:
+            slugs = [entry.slug for entry in entries if entry.conversion != "ready"]
+
         if not slugs:
             print("All papers are already converted and ready.")
             return 0
@@ -56,11 +71,13 @@ def _cmd_ingest(args: argparse.Namespace) -> int:
     code = _cmd_convert(args)
     if code != 0 or args.convert_only:
         if args.convert_only and code == 0:
-            print("convert-only: skipping Chroma indexing (not yet implemented).")
+            print("convert-only: skipping Chroma indexing.")
         return code
 
-    print("index: Chroma ingest not yet implemented (see HANDOFF queue P2).")
-    return 0
+    from fedmaq_literature.ingest import run_ingest
+
+    slug = args.slug if args.slug else None
+    return run_ingest(slug=slug)
 
 
 def _cmd_list_slugs(_: argparse.Namespace) -> int:
@@ -92,6 +109,11 @@ def _add_convert_flags(parser: argparse.ArgumentParser) -> None:
         "--no-marker-fallback",
         action="store_true",
         help="Do not fall back to Marker when Docling QA fails",
+    )
+    parser.add_argument(
+        "--force-convert",
+        action="store_true",
+        help="Force PDF conversion even if the paper is already marked ready",
     )
 
 
