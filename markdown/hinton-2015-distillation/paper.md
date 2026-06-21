@@ -32,7 +32,11 @@ The transfer set that is used to train the small model could consist entirely of
 
 Neural networks typically produce class probabilities by using a 'softmax' output layer that converts the logit, z i , computed for each class into a probability, q i , by comparing z i with the other logits.
 
-<!-- formula-not-decoded -->
+$$
+\begin{aligned}
+q _ { i } = \frac { e x p ( z _ { i } / T ) } { \sum _ { j } e x p ( z _ { j } / T ) } & & ( 1 )
+\end{aligned}
+$$
 
 where T is a temperature that is normally set to 1 . Using a higher value for T produces a softer probability distribution over classes.
 
@@ -44,13 +48,29 @@ When the correct labels are known for all or some of the transfer set, this meth
 
 Each case in the transfer set contributes a cross-entropy gradient, dC/dz i , with respect to each logit, z i of the distilled model. If the cumbersome model has logits v i which produce soft target probabilities p i and the transfer training is done at a temperature of T , this gradient is given by:
 
-<!-- formula-not-decoded -->
+$$
+\begin{aligned}
+\frac { \partial C } { \partial z _ { i } } = \frac { 1 } { T } \left ( q _ { i } - p _ { i } \right ) = \frac { 1 } { T } \left ( \frac { e ^ { z _ { i } / T } } { \sum _ { j } e ^ { z _ { j } / T } } - \frac { e ^ { v _ { i } / T } } { \sum _ { j } e ^ { v _ { j } / T } } \right ) \\ \text {perature is high compared with the magnitude of the logits, we can approximate:}
+\end{aligned}
+$$
 
 If the temperature is high compared with the magnitude of the logits, we can approximate:
 
-<!-- formula-not-decoded -->
+$$
+\begin{aligned}
+\frac { \partial C } { \partial z _ { i } } & \approx \frac { 1 } { T } \left ( \frac { 1 + z _ { i } / T } { N + \sum _ { j } z _ { j } / T } - \frac { 1 + v _ { i } / T } { N + \sum _ { j } v _ { j } / T } \right )
+\end{aligned}
+$$
 
-<!-- formula-not-decoded -->
+s u m e
+
+$$
+\text {that the logits have been zero-measured separately for each transfer case so that }
+$$
+
+$$
+\frac { \partial C } { \partial z _ { i } } \approx \frac { 1 } { N T ^ { 2 } } \left ( z _ { i } - v _ { i } \right )
+$$
 
 If we now assume that the logits have been zero-meaned separately for each transfer case so that ∑ j z j = ∑ j v j = 0 Eq. 3 simplifies to:
 
@@ -72,7 +92,9 @@ State-of-the-art ASR systems currently use DNNs to map a (short) temporal contex
 
 Although it is possible (and desirable) to train the DNN in such a way that the decoder (and, thus, the language model) is taken into account by marginalizing over all possible paths, it is common to train the DNN to perform frame-by-frame classification by (locally) minimizing the cross entropy between the predictions made by the net and the labels given by a forced alignment with the ground truth sequence of states for each observation:
 
-<!-- formula-not-decoded -->
+$$
+\theta = \arg \max _ { \theta ^ { \prime } } P ( h _ { t } | s _ { t } ; \theta ^ { \prime } )
+$$
 
 where θ are the parameters of our acoustic model P which maps acoustic observations at time t , s t , to a probability, P ( h t | s t ; θ ′ ) , of the 'correct' HMM state h t , which is determined by a forced alignment with the correct sequence of words. The model is trained with a distributed stochastic gradient descent approach.
 
@@ -131,7 +153,11 @@ Step 1: For each test case, we find the n most probable classes according to the
 
 Step 2: We then take all the specialist models, m , whose special subset of confusable classes, S m , has a non-empty intersection with k and call this the active set of specialists A k (note that this set may be empty). We then find the full probability distribution q over all the classes that minimizes:
 
-<!-- formula-not-decoded -->
+$$
+\begin{aligned}
+K L ( \mathbf p ^ { g } , \mathbf q ) + \sum _ { m \in A _ { k } } K L ( \mathbf p ^ { m } , \mathbf q )
+\end{aligned}
+$$
 
 where KL denotes the KL divergence, and p m p g denote the probability distribution of a specialist model or the generalist full model. The distribution p m is a distribution over all the specialist classes of m plus a single dustbin class, so when computing its KL divergence from the full q distribution we sum all of the probabilities that the full q distribution assigns to all the classes in m 's dustbin.
 

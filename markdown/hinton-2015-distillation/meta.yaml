@@ -1,15 +1,15 @@
 slug: hinton-2015-distillation
-pdf: papers\Hinton et al. - 2015 - Distilling the Knowledge in a Neural Network.pdf
+pdf: papers/Hinton et al. - 2015 - Distilling the Knowledge in a Neural Network.pdf
 converter: docling
-converted_at: '2026-06-19T09:20:17.534737+00:00'
+converted_at: '2026-06-21T03:42:30.433199+00:00'
 page_count: 9
-char_count: 35698
+char_count: 36679
 qa:
   passed: true
   confidence: 0.9675095756868869
   mean_grade: excellent
   low_grade: excellent
-  char_count: 35698
+  char_count: 36679
   page_count: 9
   reasons: []
 confidence:

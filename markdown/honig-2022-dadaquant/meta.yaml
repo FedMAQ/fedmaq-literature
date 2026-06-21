@@ -1,0 +1,19 @@
+slug: honig-2022-dadaquant
+pdf: papers/Hönig et al. - 2022 - DAdaQuant Doubly-adaptive quantization for communication-efficient
+  Federated Learning.pdf
+converter: docling
+converted_at: '2026-06-21T04:46:15.493057+00:00'
+page_count: 15
+char_count: 65093
+qa:
+  passed: true
+  confidence: 0.9593342555700602
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 65093
+  page_count: 15
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9593342555700602

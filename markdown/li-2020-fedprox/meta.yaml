@@ -1,0 +1,18 @@
+slug: li-2020-fedprox
+pdf: papers/Li et al. - 2020 - Federated Optimization in Heterogeneous Networks.pdf
+converter: docling
+converted_at: '2026-06-21T04:29:18.578433+00:00'
+page_count: 22
+char_count: 91175
+qa:
+  passed: true
+  confidence: 0.9701476134760431
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 91175
+  page_count: 22
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9701476134760431
