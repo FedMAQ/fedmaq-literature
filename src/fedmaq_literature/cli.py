@@ -11,27 +11,45 @@ from fedmaq_literature.registry import parse_registry
 
 def _cmd_convert(args: argparse.Namespace) -> int:
     from fedmaq_literature.convert import convert_paper
+    from fedmaq_literature.registry import parse_registry
 
-    pdf_path = Path(args.pdf).resolve() if args.pdf else None
-    try:
-        output = convert_paper(
-            args.slug,
-            pdf_path=pdf_path,
-            force_marker=args.force_marker,
-            skip_marker_fallback=args.no_marker_fallback,
-        )
-    except (FileNotFoundError, KeyError, RuntimeError) as exc:
-        print(f"error: {exc}", file=sys.stderr)
+    if not args.slug and not getattr(args, "all", False):
+        print("error: either --slug or --all is required", file=sys.stderr)
         return 1
 
-    qa = output.qa
-    print(f"converted {args.slug} with {output.converter}")
-    if qa:
-        status = "passed" if qa.passed else "failed"
-        print(f"qa: {status} ({qa.char_count} chars)")
-        if qa.reasons:
-            print(f"qa notes: {', '.join(qa.reasons)}")
-    return 0 if qa and qa.passed else 2
+    if args.slug:
+        slugs = [args.slug]
+    else:
+        entries = parse_registry()
+        slugs = [entry.slug for entry in entries if entry.conversion != "ready"]
+        if not slugs:
+            print("All papers are already converted and ready.")
+            return 0
+
+    exit_code = 0
+    for slug in slugs:
+        print(f"Processing '{slug}'...")
+        pdf_path = Path(args.pdf).resolve() if (args.pdf and args.slug) else None
+        try:
+            output = convert_paper(
+                slug,
+                pdf_path=pdf_path,
+                force_marker=args.force_marker,
+                skip_marker_fallback=args.no_marker_fallback,
+            )
+            qa = output.qa
+            print(f"converted {slug} with {output.converter}")
+            if qa:
+                status = "passed" if qa.passed else "failed"
+                print(f"qa: {status} ({qa.char_count} chars)")
+                if qa.reasons:
+                    print(f"qa notes: {', '.join(qa.reasons)}")
+            if not qa or not qa.passed:
+                exit_code = 2
+        except (FileNotFoundError, KeyError, RuntimeError) as exc:
+            print(f"error converting {slug}: {exc}", file=sys.stderr)
+            exit_code = 1
+    return exit_code
 
 
 def _cmd_ingest(args: argparse.Namespace) -> int:
@@ -56,8 +74,11 @@ def _cmd_list_slugs(_: argparse.Namespace) -> int:
 
 
 def _add_convert_flags(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--slug", help="Paper slug from paper_registry.md")
     parser.add_argument(
-        "--slug", required=True, help="Paper slug from paper_registry.md"
+        "--all",
+        action="store_true",
+        help="Convert all pending papers in the registry",
     )
     parser.add_argument(
         "--pdf", help="Override PDF path (default: resolve from registry)"
