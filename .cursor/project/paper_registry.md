@@ -25,11 +25,11 @@ Track conversion, indexing, and summary status. Run `fedmaq-lit ingest --slug <s
 | li-2019-fedmd                            | Li and Wang - 2019 - FedMD Heterogenous Federated Learning...                                     | —          | ready      | none    | kd                  |
 | mao-2023-power-load                      | Mao et al. - 2023 - Communication-Efficient Federated Learning for Power Load...                  | —          | ready      | none    | application         |
 | qu-2020-quantization-kd                  | Qu et al. - 2020 - Quantization and Knowledge Distillation...                                     | —          | ready      | none    | quantization, kd    |
-| richter-2024-electric-load               | Richter et al. - 2024 - Advancing Electric Load Forecasting Leveraging Federated Learning         | —          | failed     | none    | application         |
+| richter-2024-electric-load               | Richter et al. - 2024 - Advancing Electric Load Forecasting Leveraging Federated Learning         | —          | ready      | none    | application         |
 | salman-2025-kd-survey                    | Salman et al. - 2025 - Knowledge distillation in federated learning...                            | —          | ready      | none    | kd, survey          |
 | sater-2021-anomaly-detection             | Sater and Hamza - 2021 - A Federated Learning Approach to Anomaly Detection...                    | —          | ready      | none    | application         |
 | sattler-2022-cfd                         | Sattler et al. - 2022 - CFD Communication-Efficient Federated Distillation...                     | —          | ready      | none    | quantization, kd    |
-| singh-2026-smart-campus                  | Singh - Edge-Assisted Smart Campus Energy Management                                              | —          | none       | none    | application         |
+| singh-2026-smart-campus                  | Singh - Edge-Assisted Smart Campus Energy Management                                              | —          | ready      | none    | application         |
 | sravanthi-2025-energy-management         | Sravanthi et al. - 2025 - Federated Learning-Based Energy Management Systems...                   | —          | ready      | none    | application         |
 | thangakrishnan-2025-spatiotemporal-fl    | Suresh Thangakrishnan et al. - 2025 - Spatiotemporal Federated Learning for Privacy-Preserving... | —          | ready      | none    | application         |
 | wu-2022-fedkd                            | Wu et al. - 2022 - Communication-efficient federated learning via knowledge distillation          | FedKD      | ready      | none    | kd                  |

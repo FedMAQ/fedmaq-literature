@@ -1,0 +1,19 @@
+slug: singh-2026-smart-campus
+pdf: papers/Singh - Edge-Assisted Smart Campus Energy Management using Federated Learning
+  and Context-Aware Control.pdf
+converter: docling
+converted_at: '2026-06-21T13:09:16.543514+00:00'
+page_count: 3
+char_count: 18178
+qa:
+  passed: true
+  confidence: 0.912728332083776
+  mean_grade: excellent
+  low_grade: good
+  char_count: 18178
+  page_count: 3
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: good
+  mean_score: 0.912728332083776
