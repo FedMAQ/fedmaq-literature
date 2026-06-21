@@ -41,7 +41,14 @@ def run_ingest(
     import torch
 
     if device is None:
-        device = "cuda" if torch.cuda.is_available() else "cpu"
+        if torch.cuda.is_available():
+            device = "cuda"
+        else:
+            raise RuntimeError(
+                "CUDA is not available. Embedding a 4B parameter model on CPU will be extremely slow. "
+                "Please install PyTorch with CUDA support (e.g., 'pip install torch --index-url https://download.pytorch.org/whl/cu121') "
+                "or explicitly specify '--device cpu' if you want to run on CPU."
+            )
 
     # Configure float16 for Qwen models
     model_kwargs = {}

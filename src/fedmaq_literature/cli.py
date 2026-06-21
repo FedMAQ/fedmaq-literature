@@ -77,7 +77,8 @@ def _cmd_ingest(args: argparse.Namespace) -> int:
     from fedmaq_literature.ingest import run_ingest
 
     slug = args.slug if args.slug else None
-    return run_ingest(slug=slug)
+    device = getattr(args, "device", None)
+    return run_ingest(slug=slug, device=device)
 
 
 def _cmd_list_slugs(_: argparse.Namespace) -> int:
@@ -131,6 +132,10 @@ def main(argv: list[str] | None = None) -> int:
         "--convert-only",
         action="store_true",
         help="Run conversion only; skip embedding/indexing",
+    )
+    ingest_parser.add_argument(
+        "--device",
+        help="Device to run embeddings on (e.g., cuda, cpu)",
     )
     ingest_parser.set_defaults(handler=_cmd_ingest)
 
