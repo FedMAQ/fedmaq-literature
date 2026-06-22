@@ -1,6 +1,9 @@
 """LlamaIndex ingestion with Qwen/Qwen3-Embedding-4B (scaffold)."""
 
 import os
+import dotenv
+
+dotenv.load_dotenv()
 
 DEFAULT_EMBED_MODEL = os.environ.get("FEDMAQ_EMBED_MODEL", "Qwen/Qwen3-Embedding-4B")
 FALLBACK_EMBED_MODEL = os.environ.get(
@@ -13,7 +16,7 @@ RETRIEVAL_INSTRUCT = (
     "or knowledge distillation, retrieve relevant passages from academic papers."
 )
 
-from fedmaq_literature.ingest.pipeline import run_ingest
+from fedmaq_literature.ingest.pipeline import run_ingest  # noqa: E402
 
 __all__ = [
     "DEFAULT_EMBED_MODEL",

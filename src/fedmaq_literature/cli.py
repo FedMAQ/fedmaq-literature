@@ -118,6 +118,33 @@ def _add_convert_flags(parser: argparse.ArgumentParser) -> None:
     )
 
 
+def _cmd_summarize(args: argparse.Namespace) -> int:
+    from fedmaq_literature.workflows.summarize import run_summarize
+
+    return run_summarize(
+        slug=args.slug,
+        model=args.model,
+        force=args.force_summarize,
+    )
+
+
+def _cmd_approve(args: argparse.Namespace) -> int:
+    from fedmaq_literature.workflows.approve import run_approve
+
+    return run_approve(slug=args.slug)
+
+
+def _cmd_query(args: argparse.Namespace) -> int:
+    from fedmaq_literature.workflows.query import run_query
+
+    return run_query(
+        query_str=args.query,
+        model=args.model,
+        limit=args.limit,
+        device=args.device,
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="fedmaq-lit")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -142,7 +169,52 @@ def main(argv: list[str] | None = None) -> int:
     list_parser = sub.add_parser("list-slugs", help="List slugs from paper_registry.md")
     list_parser.set_defaults(handler=_cmd_list_slugs)
 
-    for name in ("query", "summarize", "approve", "approve-synthesis"):
+    # Wire up query command
+    query_parser = sub.add_parser(
+        "query", help="Query the Chroma DB and synthesize an answer"
+    )
+    query_parser.add_argument(
+        "--query", required=True, help="Research question or query string"
+    )
+    query_parser.add_argument(
+        "--model", help="OpenRouter model name to use for synthesis"
+    )
+    query_parser.add_argument(
+        "--limit", type=int, default=5, help="Number of passages to retrieve"
+    )
+    query_parser.add_argument(
+        "--device", help="Device to run embeddings on (e.g., cuda, cpu)"
+    )
+    query_parser.set_defaults(handler=_cmd_query)
+
+    # Wire up summarize command
+    summarize_parser = sub.add_parser(
+        "summarize", help="Generate paper summary draft via LLM"
+    )
+    summarize_parser.add_argument(
+        "--slug", help="Paper slug (omit to summarize all pending)"
+    )
+    summarize_parser.add_argument(
+        "--model", help="OpenRouter model name to use for summary"
+    )
+    summarize_parser.add_argument(
+        "--force-summarize",
+        action="store_true",
+        help="Force summary generation even if draft/approval exists",
+    )
+    summarize_parser.set_defaults(handler=_cmd_summarize)
+
+    # Wire up approve command
+    approve_parser = sub.add_parser(
+        "approve", help="Approve and promote a summary draft"
+    )
+    approve_parser.add_argument(
+        "--slug", help="Paper slug (omit to approve all drafts)"
+    )
+    approve_parser.set_defaults(handler=_cmd_approve)
+
+    # Keep remaining stubs
+    for name in ("approve-synthesis",):
         stub = sub.add_parser(name, help=f"{name} (not yet implemented)")
         stub.set_defaults(handler=_stub_handler(name))
 

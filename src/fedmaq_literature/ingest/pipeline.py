@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import os
 from pathlib import Path
+import os
 import chromadb
 import yaml
 
@@ -46,14 +46,26 @@ def run_ingest(
         else:
             raise RuntimeError(
                 "CUDA is not available. Embedding a 4B parameter model on CPU will be extremely slow. "
-                "Please install PyTorch with CUDA support (e.g., 'pip install torch --index-url https://download.pytorch.org/whl/cu121') "
+                "Please install PyTorch with CUDA support (e.g., 'pip install torch --index-url https://download.pytorch.org/whl/cu132') "
                 "or explicitly specify '--device cpu' if you want to run on CPU."
             )
 
-    # Configure float16 for Qwen models
+    # Configure model precision/dtype
     model_kwargs = {}
-    if "Qwen" in model_name:
-        model_kwargs["dtype"] = torch.float16
+    dtype_str = os.environ.get("FEDMAQ_EMBED_DTYPE", "float16").lower()
+    if device == "cuda":
+        if dtype_str == "float16":
+            model_kwargs["dtype"] = torch.float16
+        elif dtype_str == "bfloat16":
+            model_kwargs["dtype"] = torch.bfloat16
+        elif dtype_str == "float32":
+            model_kwargs["dtype"] = torch.float32
+    else:
+        # Fallback to float32 on CPU unless bfloat16 is specified
+        if dtype_str == "bfloat16":
+            model_kwargs["dtype"] = torch.bfloat16
+        else:
+            model_kwargs["dtype"] = torch.float32
 
     print(f"Initializing embedding model: {model_name} on {device}...")
     embed_model = HuggingFaceEmbedding(
