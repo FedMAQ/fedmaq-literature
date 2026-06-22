@@ -8,6 +8,7 @@ from fedmaq_literature.registry import (
     resolve_pdf_path,
     update_registry_conversion,
     update_registry_indexing,
+    update_registry_summary,
 )
 
 
@@ -84,5 +85,20 @@ def test_update_registry_indexing(tmp_path: Path) -> None:
     text = reg.read_text(encoding="utf-8")
     assert (
         "| he-2025-dynfed | He et al. - 2025 - DynFed | DynFed | none | ready | none | sota |"
+        in text
+    )
+
+
+def test_update_registry_summary(tmp_path: Path) -> None:
+    (tmp_path / "papers").mkdir()
+    reg_dir = tmp_path / ".cursor" / "project"
+    reg_dir.mkdir(parents=True)
+    reg = reg_dir / "paper_registry.md"
+    reg.write_text(REGISTRY, encoding="utf-8")
+
+    update_registry_summary("he-2025-dynfed", "draft", root=tmp_path)
+    text = reg.read_text(encoding="utf-8")
+    assert (
+        "| he-2025-dynfed | He et al. - 2025 - DynFed | DynFed | none | none | draft | sota |"
         in text
     )
