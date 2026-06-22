@@ -9,3 +9,9 @@ alwaysApply: true
 - Never auto-promote to `summaries/{slug}.md` or `syntheses/{topic}.md` — human runs `fedmaq-lit approve`.
 - RAG does not directly edit `fedmaq-experiments`, `fedmaq-analyses`, or `fedmaq-manuscript`.
 - Cross-repo changes: Cursor session in target repo using that repo's `.cursor/rules/`.
+
+## Component Roles
+
+- **Vector DB (Chroma):** Holds split text chunks. Used for granular, passage-level retrieval and query answering (evidence-checking).
+- **Summaries (`summaries/`):** Condenses papers to capture high-level methodology, limitations, and relevance. Fits within context window for global reasoning.
+- **Syntheses (`syntheses/`):** Consolidates summaries to document thematic findings, evidence tables, and literature gaps.
