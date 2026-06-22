@@ -4,7 +4,7 @@ pdf: papers/Hönig et al. - 2022 - DAdaQuant Doubly-adaptive quantization for co
 converter: docling
 converted_at: '2026-06-21T04:46:15.493057+00:00'
 page_count: 15
-char_count: 65093
+char_count: 61304
 qa:
   passed: true
   confidence: 0.9593342555700602

@@ -4,7 +4,7 @@ pdf: papers/Song et al. - 2024 - FedDistill Global Model Distillation for Local 
 converter: docling
 converted_at: '2026-06-21T05:24:36.056342+00:00'
 page_count: 13
-char_count: 64308
+char_count: 60434
 qa:
   passed: true
   confidence: 0.9708314517112743

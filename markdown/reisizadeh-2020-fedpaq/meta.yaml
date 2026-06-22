@@ -4,7 +4,7 @@ pdf: papers/Reisizadeh et al. - 2020 - FedPAQ A Communication-Efficient Federate
 converter: docling
 converted_at: '2026-06-21T05:08:38.584668+00:00'
 page_count: 10
-char_count: 58610
+char_count: 51336
 qa:
   passed: true
   confidence: 0.9524689078287574

@@ -3,7 +3,7 @@ pdf: papers/Li et al. - 2020 - Federated Optimization in Heterogeneous Networks.
 converter: docling
 converted_at: '2026-06-21T04:29:18.578433+00:00'
 page_count: 22
-char_count: 91175
+char_count: 87581
 qa:
   passed: true
   confidence: 0.9701476134760431

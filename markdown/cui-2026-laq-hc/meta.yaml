@@ -4,7 +4,7 @@ pdf: papers/Cui et al. - 2026 - Lightweight Adaptive Quantization Algorithms for
 converter: docling
 converted_at: '2026-06-21T06:51:10.645581+00:00'
 page_count: 16
-char_count: 110165
+char_count: 88093
 qa:
   passed: true
   confidence: 0.9631027743530758

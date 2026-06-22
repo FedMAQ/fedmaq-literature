@@ -4,7 +4,7 @@ pdf: papers/He et al. - 2025 - DynFed Adaptive Federated Learning via Quantizati
 converter: docling
 converted_at: '2026-06-21T07:25:10.873728+00:00'
 page_count: 9
-char_count: 71598
+char_count: 58344
 qa:
   passed: true
   confidence: 0.9594736069003384

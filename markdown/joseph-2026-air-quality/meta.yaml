@@ -4,7 +4,7 @@ pdf: papers/Joseph et al. - 2026 - Air Quality Prediction Using Communication-Ef
 converter: docling
 converted_at: '2026-06-21T10:17:35.257817+00:00'
 page_count: 6
-char_count: 34776
+char_count: 29115
 qa:
   passed: true
   confidence: 0.9502809713610328

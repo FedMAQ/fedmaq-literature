@@ -4,7 +4,7 @@ pdf: papers/Wang et al. - 2026 - AdaDQ-KD An Adaptive Dithering Quantization wit
 converter: docling
 converted_at: '2026-06-21T07:55:20.983936+00:00'
 page_count: 15
-char_count: 91664
+char_count: 79253
 qa:
   passed: true
   confidence: 0.9563765236728566

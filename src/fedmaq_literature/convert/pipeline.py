@@ -150,6 +150,23 @@ def _clean_math_block(math_content: str) -> str:
         elif content.endswith("\\end{equation*}"):
             content = content[start_len : -len("\\end{equation*}")].strip()
 
+    # Deduplicate repetitive generation loop collapse patterns
+    content = re.sub(r"(\\\s+){3,}", r"\\ ", content)
+    content = re.sub(r"(\\quad\s*){3,}", r"\\quad ", content)
+    content = re.sub(r"(\\text\s*\{\s*\}){3,}", r"", content)
+    for _ in range(5):
+        prev = content
+
+        def repl(match):
+            pattern = match.group(1)
+            if len(pattern) >= 6:
+                return pattern
+            return match.group(0)
+
+        content = re.sub(r"(.+?)(\s*\1){2,}", repl, content)
+        if content == prev:
+            break
+
     has_alignment = "&" in content or "\\\\" in content
 
     # Check if the content is wrapped in common alignment environments

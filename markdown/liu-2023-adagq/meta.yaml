@@ -4,7 +4,7 @@ pdf: papers/Liu et al. - 2023 - Communication-Efficient Federated Learning for H
 converter: docling
 converted_at: '2026-06-21T05:39:14.088320+00:00'
 page_count: 10
-char_count: 71701
+char_count: 63319
 qa:
   passed: true
   confidence: 0.9661154293055322

@@ -4,7 +4,7 @@ pdf: papers/McMahan et al. - 2017 - Communication-Efficient Learning of Deep Net
 converter: docling
 converted_at: '2026-06-21T04:04:48.359713+00:00'
 page_count: 10
-char_count: 58281
+char_count: 53780
 qa:
   passed: true
   confidence: 0.9730214660310198

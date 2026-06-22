@@ -155,7 +155,7 @@ In the relation, L R ( . ) Indicates the distance between the z t and z s of bot
 ## 4.1.2  Feature-based method
 
 $$
-L _ { F e a D } \left ( f _ { t } \left ( x \right ) , f _ { s } ( x ) \right ) = \mathcal { L } _ { F } \left ( \Phi _ { t } \left ( f _ { t } \left ( x \right ) \right ) , \Phi _ { s } \left ( f _ { s } \left ( x \right ) \right ) \right )
+L _ { F e a D } \left ( f _ { t } \left ( x \right ) , f _ { s } ( x ) \right ) = \mathcal { L } _ { F } \left ( \Phi _ { t } \left ( f _ { t } \left ( x \right ) \right ) , \Phi _ { s } \left ( f _ { s } \left ( x \right )
 $$
 
 Deep neural networks learn several levels of feature representation well from data (from low-level features to semantic and abstract features). Therefore, the last layer of feature maps and the middle layers can be used as knowledge to guide the student model. Therefore, multi-level feature learning can be considered the development of response-based methods. In general, the cost function of feature-based methods can be formulated as follows:

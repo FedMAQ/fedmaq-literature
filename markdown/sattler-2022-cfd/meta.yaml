@@ -4,7 +4,7 @@ pdf: papers/Sattler et al. - 2022 - CFD Communication-Efficient Federated Distil
 converter: docling
 converted_at: '2026-06-21T09:26:33.132065+00:00'
 page_count: 14
-char_count: 75753
+char_count: 71898
 qa:
   passed: true
   confidence: 0.9703330262965614

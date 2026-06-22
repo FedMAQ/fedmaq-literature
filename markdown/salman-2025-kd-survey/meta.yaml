@@ -4,7 +4,7 @@ pdf: papers/Salman et al. - 2025 - Knowledge distillation in federated learning 
 converter: docling
 converted_at: '2026-06-21T08:57:52.986383+00:00'
 page_count: 40
-char_count: 72104
+char_count: 72238
 qa:
   passed: true
   confidence: 0.9670948285528774
