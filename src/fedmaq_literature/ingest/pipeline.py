@@ -142,16 +142,7 @@ def run_ingest(
         print("No documents successfully loaded.")
         return 0
 
-    # Clean existing entries from Chroma to prevent duplicates
-    for doc in documents:
-        s = doc.metadata["slug"]
-        print(f"Cleaning existing Chroma entries for slug '{s}'...")
-        try:
-            chroma_collection.delete(where={"slug": s})
-        except Exception:
-            pass
-
-    print(f"Running IngestionPipeline for {len(documents)} document(s)...")
+    print(f"Running IngestionPipeline sequentially for {len(documents)} document(s)...")
     pipeline = IngestionPipeline(
         transformations=[
             TokenTextSplitter(chunk_size=512, chunk_overlap=128),
@@ -160,14 +151,29 @@ def run_ingest(
         vector_store=vector_store,
     )
 
-    try:
-        pipeline.run(documents=documents)
-        print("Ingestion completed successfully.")
-        for doc in documents:
-            update_registry_indexing(doc.metadata["slug"], "ready", root=root)
-        return 0
-    except Exception as e:
-        print(f"Error running ingestion: {e}")
-        for doc in documents:
-            update_registry_indexing(doc.metadata["slug"], "failed", root=root)
-        return 1
+    exit_code = 0
+    for idx, doc in enumerate(documents, 1):
+        s = doc.metadata["slug"]
+        print(f"[{idx}/{len(documents)}] Ingesting paper '{s}'...")
+        try:
+            # Clean existing Chroma entries for this slug first
+            try:
+                chroma_collection.delete(where={"slug": s})
+            except Exception:
+                pass
+
+            pipeline.run(documents=[doc])
+            update_registry_indexing(s, "ready", root=root)
+            print(
+                f"[{idx}/{len(documents)}] Ingestion completed successfully for '{s}'."
+            )
+        except Exception as e:
+            print(f"[{idx}/{len(documents)}] Error running ingestion for '{s}': {e}")
+            update_registry_indexing(s, "failed", root=root)
+            exit_code = 1
+
+    if exit_code == 0:
+        print("All ingestions completed successfully.")
+    else:
+        print("Some ingestions encountered errors.")
+    return exit_code
