@@ -29,8 +29,8 @@ Track conversion, indexing, and summary status. Run `fedmaq-lit ingest --slug <s
 | salman-2025-kd-survey                    | Salman et al. - 2025 - Knowledge distillation in federated learning...                            | —          | ready      | ready    | approved | kd, survey          |
 | sater-2021-anomaly-detection             | Sater and Hamza - 2021 - A Federated Learning Approach to Anomaly Detection...                    | —          | ready      | ready    | approved | application         |
 | sattler-2022-cfd                         | Sattler et al. - 2022 - CFD Communication-Efficient Federated Distillation...                     | —          | ready      | ready    | draft    | quantization, kd    |
-| singh-2026-smart-campus | Singh - Edge-Assisted Smart Campus Energy Management | — | ready | ready | approved | application |
-| sravanthi-2025-energy-management | Sravanthi et al. - 2025 - Federated Learning-Based Energy Management Systems... | — | ready | ready | approved | application |
+| singh-2026-smart-campus                  | Singh - Edge-Assisted Smart Campus Energy Management                                              | —          | ready      | ready    | approved | application         |
+| sravanthi-2025-energy-management         | Sravanthi et al. - 2025 - Federated Learning-Based Energy Management Systems...                   | —          | ready      | ready    | approved | application         |
 | thangakrishnan-2025-spatiotemporal-fl    | Suresh Thangakrishnan et al. - 2025 - Spatiotemporal Federated Learning for Privacy-Preserving... | —          | ready      | ready    | draft    | application         |
 | wu-2022-fedkd                            | Wu et al. - 2022 - Communication-efficient federated learning via knowledge distillation          | FedKD      | ready      | ready    | draft    | kd                  |
 
