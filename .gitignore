@@ -1,9 +1,5 @@
-# Papers
-papers/
-
-# Local RAG state (not committed)
-storage/
-*.chroma
+# Papers (PDF library at repo root only — NOT kg/papers/ OKF nodes)
+/papers/
 
 # Env
 .env

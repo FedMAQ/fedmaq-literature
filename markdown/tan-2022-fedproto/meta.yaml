@@ -1,0 +1,19 @@
+slug: tan-2022-fedproto
+pdf: papers/01 FL, Heterogeneity/Tan et al. - 2022 - FedProto Federated Prototype
+  Learning across Heterogeneous Clients.pdf
+converter: docling
+converted_at: '2026-07-09T10:27:58.518127+00:00'
+page_count: 9
+char_count: 52619
+qa:
+  passed: true
+  confidence: 0.9531929115833688
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 52619
+  page_count: 9
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9531929115833688

@@ -15,13 +15,11 @@ class PaperEntry:
     pdf_label: str
     baseline: str
     conversion: str
-    indexing: str
-    summary: str
     tags: str
 
 
 TABLE_ROW_RE = re.compile(
-    r"^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$"
+    r"^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|$"
 )
 
 
@@ -36,7 +34,7 @@ def parse_registry(path: Path | None = None) -> list[PaperEntry]:
         match = TABLE_ROW_RE.match(line.strip())
         if not match:
             continue
-        slug, pdf_label, baseline, conversion, indexing, summary, tags = (
+        slug, pdf_label, baseline, conversion, tags = (
             field.strip() for field in match.groups()
         )
         if slug.lower() == "slug" or slug.startswith("-"):
@@ -47,8 +45,6 @@ def parse_registry(path: Path | None = None) -> list[PaperEntry]:
                 pdf_label=pdf_label,
                 baseline=baseline,
                 conversion=conversion,
-                indexing=indexing,
-                summary=summary,
                 tags=tags,
             )
         )
@@ -75,7 +71,7 @@ def resolve_pdf_path(slug: str, root: Path | None = None) -> Path:
     for entry in entries:
         if entry.slug != slug:
             continue
-        for pdf_path in sorted(papers.glob("*.pdf")):
+        for pdf_path in sorted(papers.rglob("*.pdf")):
             if _pdf_matches_label(pdf_path.name, entry.pdf_label):
                 return pdf_path
         raise FileNotFoundError(
@@ -105,62 +101,6 @@ def update_registry_conversion(
         if match and match.group(1).strip() == slug:
             parts = [part.strip() for part in match.groups()]
             parts[3] = status
-            updated.append(f"| {' | '.join(parts)} |\n")
-            changed = True
-        else:
-            updated.append(line if line.endswith("\n") else line + "\n")
-
-    if changed:
-        reg_file.write_text("".join(updated), encoding="utf-8")
-
-
-def update_registry_indexing(
-    slug: str,
-    status: str,
-    *,
-    root: Path | None = None,
-) -> None:
-    """Update Indexing column for a slug in paper_registry.md."""
-    reg_file = registry_path(root)
-    if not reg_file.is_file():
-        return
-
-    lines = reg_file.read_text(encoding="utf-8").splitlines(keepends=True)
-    updated: list[str] = []
-    changed = False
-    for line in lines:
-        match = TABLE_ROW_RE.match(line.strip())
-        if match and match.group(1).strip() == slug:
-            parts = [part.strip() for part in match.groups()]
-            parts[4] = status
-            updated.append(f"| {' | '.join(parts)} |\n")
-            changed = True
-        else:
-            updated.append(line if line.endswith("\n") else line + "\n")
-
-    if changed:
-        reg_file.write_text("".join(updated), encoding="utf-8")
-
-
-def update_registry_summary(
-    slug: str,
-    status: str,
-    *,
-    root: Path | None = None,
-) -> None:
-    """Update Summary column for a slug in paper_registry.md."""
-    reg_file = registry_path(root)
-    if not reg_file.is_file():
-        return
-
-    lines = reg_file.read_text(encoding="utf-8").splitlines(keepends=True)
-    updated: list[str] = []
-    changed = False
-    for line in lines:
-        match = TABLE_ROW_RE.match(line.strip())
-        if match and match.group(1).strip() == slug:
-            parts = [part.strip() for part in match.groups()]
-            parts[5] = status
             updated.append(f"| {' | '.join(parts)} |\n")
             changed = True
         else:

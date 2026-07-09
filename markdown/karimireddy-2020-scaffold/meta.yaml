@@ -1,0 +1,19 @@
+slug: karimireddy-2020-scaffold
+pdf: papers/01 FL, Heterogeneity/Karimireddy et al. - 2020 - SCAFFOLD Stochastic Controlled
+  Averaging for Federated Learning.pdf
+converter: docling
+converted_at: '2026-07-09T10:22:32.713966+00:00'
+page_count: 12
+char_count: 64012
+qa:
+  passed: true
+  confidence: 0.9520479670516108
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 64012
+  page_count: 12
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9520479670516108

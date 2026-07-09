@@ -1,0 +1,19 @@
+slug: acar-2021-feddyn
+pdf: papers/01 FL, Heterogeneity/Acar et al. - 2021 - Federated Learning Based on
+  Dynamic Regularization.pdf
+converter: docling
+converted_at: '2026-07-09T10:18:16.096543+00:00'
+page_count: 43
+char_count: 29045
+qa:
+  passed: true
+  confidence: 0.9863157484684235
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 29045
+  page_count: 43
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9863157484684235

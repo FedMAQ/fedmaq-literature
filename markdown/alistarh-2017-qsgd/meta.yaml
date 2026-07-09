@@ -1,0 +1,19 @@
+slug: alistarh-2017-qsgd
+pdf: papers/02 Quantization/Alistarh et al. - 2017 - QSGD Communication-Efficient
+  SGD via Gradient Quantization and Encoding.pdf
+converter: docling
+converted_at: '2026-07-09T10:31:43.827164+00:00'
+page_count: 12
+char_count: 46987
+qa:
+  passed: true
+  confidence: 0.9665002304194078
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 46987
+  page_count: 12
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9665002304194078
