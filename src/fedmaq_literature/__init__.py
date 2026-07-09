@@ -1,3 +1,3 @@
-"""FedMAQ literature ingestion and RAG package."""
+"""FedMAQ literature: PDF-to-markdown conversion pipeline for the thesis corpus."""
 
 __version__ = "0.1.0"

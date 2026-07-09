@@ -31,7 +31,3 @@ def markdown_dir(root: Path | None = None) -> Path:
 
 def registry_path(root: Path | None = None) -> Path:
     return repo_root(root) / ".cursor" / "project" / "paper_registry.md"
-
-
-def storage_dir(root: Path | None = None) -> Path:
-    return repo_root(root) / "storage"
