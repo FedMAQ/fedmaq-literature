@@ -1,6 +1,14 @@
 # Papers (PDF library at repo root only — NOT kg/papers/ OKF nodes)
 /papers/
 
+# Generic idea/spec docs (not FedMAQ-specific; superseded by the global
+# knowledge-wiki skill, which combines their content)
+/llm-wiki.md
+/SPEC.md
+
+# Obsidian local editor state (personal, not bundle content)
+kg/.obsidian/
+
 # Env
 .env
 

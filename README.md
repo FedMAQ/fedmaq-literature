@@ -38,7 +38,7 @@ There is no vector database: the corpus is small and finite, so file access
 
 - PDF → markdown: **Docling** primary, **Marker** GPU fallback when Docling QA fails.
 - Writes `markdown/{slug}/paper.md` + `meta.yaml` and updates the conversion status
-  in `.cursor/project/paper_registry.md`.
+  in `.claude/project/paper_registry.md`.
 
 ## Setup
 
@@ -58,9 +58,9 @@ On Windows, if a HuggingFace model download fails on symlinks, the converter set
 
 - Add a paper: place its PDF under `papers/<batch>/`, add a registry row, run
   `fedmaq-lit convert --slug {slug}`, then author `kg/papers/{slug}.md` following
-  [`.cursor/rules/okf-paper-template.mdc`](.cursor/rules/okf-paper-template.mdc).
+  [`.claude/rules/okf-paper-template.md`](.claude/rules/okf-paper-template.md).
 - Conventions for the bundle live in
-  [`.cursor/rules/kg-conventions.mdc`](.cursor/rules/kg-conventions.mdc); the format
+  [`.claude/rules/kg-conventions.md`](.claude/rules/kg-conventions.md); the format
   itself is specified in [`SPEC.md`](SPEC.md).
 
 ## Agent onboarding
