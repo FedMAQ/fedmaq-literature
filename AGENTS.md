@@ -7,19 +7,19 @@ This repo has two layers: a **raw** converted-text layer (`markdown/`) and a
 `markdown/` for exact quotes and equations. There is no vector store — use grep +
 read over these directories.
 
-| Resource                 | Path                                                            |
-| ------------------------ | --------------------------------------------------------------- |
-| Knowledge graph (start)  | `kg/index.md`                                                   |
-| Paper nodes              | `kg/papers/{slug}.md` (39 `type: Paper` nodes)                  |
-| Paper listing            | `kg/papers/index.md`                                            |
-| Converted full text      | `markdown/{slug}/paper.md` (+ `meta.yaml`)                      |
-| Paper status / registry  | `.cursor/project/paper_registry.md`                             |
-| OKF spec                 | `SPEC.md`                                                       |
-| Bundle conventions       | `.cursor/rules/kg-conventions.mdc`                              |
-| Node templates           | `.cursor/rules/okf-paper-template.mdc`, `okf-finding-template.mdc` |
-| Source PDFs (pipeline)   | `papers/` (do not read in chat)                                 |
-| Domain rules (sibling)   | `../fedmaq-experiments/.cursor/rules/`                          |
-| CLI (conversion only)    | `uv run fedmaq-lit convert` / `list-slugs`                      |
+| Resource                | Path                                                               |
+| ----------------------- | ------------------------------------------------------------------ |
+| Knowledge graph (start) | `kg/index.md`                                                      |
+| Paper nodes             | `kg/papers/{slug}.md` (39 `type: Paper` nodes)                     |
+| Paper listing           | `kg/papers/index.md`                                               |
+| Converted full text     | `markdown/{slug}/paper.md` (+ `meta.yaml`)                         |
+| Paper status / registry | `.cursor/project/paper_registry.md`                                |
+| OKF spec                | `SPEC.md`                                                          |
+| Bundle conventions      | `.cursor/rules/kg-conventions.mdc`                                 |
+| Node templates          | `.cursor/rules/okf-paper-template.mdc`, `okf-finding-template.mdc` |
+| Source PDFs (pipeline)  | `papers/` (do not read in chat)                                    |
+| Domain rules (sibling)  | `../fedmaq-experiments/.cursor/rules/`                             |
+| CLI (conversion only)   | `uv run fedmaq-lit convert` / `list-slugs`                         |
 
 ## Conventions
 
