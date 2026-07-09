@@ -5,8 +5,8 @@ description: Convert a paper PDF to markdown/{slug}/paper.md via fedmaq-lit
 
 # Convert Paper
 
-1. Confirm the slug (and its PDF label) in `.cursor/project/paper_registry.md`.
-   Add a row per `naming-conventions.mdc` if missing.
+1. Confirm the slug (and its PDF label) in `.claude/project/paper_registry.md`.
+   Add a row per `naming-conventions.md` if missing.
 2. Install the converter: `uv sync --extra convert` (add `--extra marker` for the
    GPU fallback).
 3. Convert: `uv run fedmaq-lit convert --slug {slug}` (or `--all` for every paper

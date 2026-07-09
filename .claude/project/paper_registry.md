@@ -47,5 +47,5 @@ to process. Curated knowledge lives in `kg/papers/{slug}.md` (one node per paper
 
 **Conversion:** `none` | `ready` | `failed`
 
-Add rows for remaining PDFs in `papers/` using `naming-conventions.mdc`, then run
+Add rows for remaining PDFs in `papers/` using `naming-conventions.md`, then run
 `fedmaq-lit convert` and author the OKF node (`kg/papers/{slug}.md`).

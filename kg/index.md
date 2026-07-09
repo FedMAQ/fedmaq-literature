@@ -7,8 +7,8 @@ okf_version: "0.1"
 An [Open Knowledge Format](../SPEC.md) bundle for the **FedMAQ** thesis —
 _Communication-Efficient Federated Learning via Multi-Adaptive Quantization and
 Knowledge Distillation_. This bundle is the curated, agent- and human-readable
-layer over the paper corpus: one concept document per paper today, growing into
-methods, concepts, findings, and gaps.
+layer over the paper corpus: paper nodes plus the methods, concepts, findings,
+and gaps synthesized from them.
 
 Bundle root is `kg/`. Intra-bundle links are root-absolute (`/papers/…`).
 References to the raw source layer (`markdown/{slug}/paper.md`, `papers/…`) are
@@ -17,10 +17,10 @@ repo-relative paths that point **outside** the bundle.
 ## Sections
 
 - [Papers](papers/) — one `type: Paper` node per paper in the thesis canon (39). The core layer.
-- [Methods](methods/) — `type: Method` nodes for algorithms (FedAvg, SCAFFOLD, DAdaQuant, …) that papers introduce or compare against. _(scaffolded)_
-- [Concepts](concepts/) — `type: Concept` nodes for cross-cutting ideas (quantization, knowledge distillation, non-IID / client drift, communication efficiency). _(scaffolded)_
-- [Findings](findings/) — `type: Finding` nodes synthesizing evidence across papers into claims relevant to the manuscript. _(scaffolded)_
-- [Gaps](gaps/) — `type: Gap` nodes recording open problems FedMAQ targets. _(scaffolded)_
+- [Methods](methods/) — `type: Method` nodes for algorithms (FedAvg, SCAFFOLD, DAdaQuant, …) that papers introduce or compare against (24).
+- [Concepts](concepts/) — `type: Concept` nodes for cross-cutting ideas (quantization, knowledge distillation, non-IID / client drift, communication efficiency) (10).
+- [Findings](findings/) — `type: Finding` nodes synthesizing evidence across papers into claims relevant to the manuscript (8).
+- [Gaps](gaps/) — `type: Gap` nodes recording open problems FedMAQ targets (6).
 
 ## How this bundle is produced
 

@@ -13,10 +13,10 @@ read over these directories.
 | Paper nodes             | `kg/papers/{slug}.md` (39 `type: Paper` nodes)                     |
 | Paper listing           | `kg/papers/index.md`                                               |
 | Converted full text     | `markdown/{slug}/paper.md` (+ `meta.yaml`)                         |
-| Paper status / registry | `.cursor/project/paper_registry.md`                                |
+| Paper status / registry | `.claude/project/paper_registry.md`                                |
 | OKF spec                | `SPEC.md`                                                          |
-| Bundle conventions      | `.cursor/rules/kg-conventions.mdc`                                 |
-| Node templates          | `.cursor/rules/okf-paper-template.mdc`, `okf-finding-template.mdc` |
+| Bundle conventions      | `.claude/rules/kg-conventions.md`                                  |
+| Node templates          | `.claude/rules/okf-paper-template.md`, `okf-finding-template.md`   |
 | Source PDFs (pipeline)  | `papers/` (do not read in chat)                                    |
 | Domain rules (sibling)  | `../fedmaq-experiments/.cursor/rules/`                             |
 | CLI (conversion only)   | `uv run fedmaq-lit convert` / `list-slugs`                         |
