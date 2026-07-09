@@ -103,6 +103,18 @@ TITLE_OVERRIDES: dict[str, str] = {
 HAND_AUTHOR: set[str] = {"joseph-2026-air-quality"}  # summary is entirely Chinese
 
 
+def _read_body_file(path: Path) -> tuple[str, str]:
+    """Hand-authored body file: a leading 'description: ...' line, then the
+    markdown body. Returns (description, body)."""
+    text = path.read_text(encoding="utf-8")
+    m = re.match(r"^description:\s*(.+?)\s*\n", text)
+    if not m:
+        raise ValueError(f"{path} must start with a 'description:' line")
+    description = m.group(1).strip().strip('"')
+    body = text[m.end():].strip()
+    return description, body
+
+
 def _yaml_scalar(value: str) -> str:
     """Double-quote a free-text scalar so colons/specials stay valid YAML."""
     escaped = value.replace("\\", "\\\\").replace('"', '\\"')
@@ -260,12 +272,6 @@ def build_node(slug: str, root: Path, entries) -> str | None:
     entry = next((e for e in entries if e.slug == slug), None)
     if entry is None:
         return None
-    if slug in HAND_AUTHOR:
-        return None  # unusable summary; hand-authored from paper.md
-    summary_path = root / "summaries" / f"{slug}.md"
-    if not summary_path.is_file():
-        return None  # the 10 net-new papers: hand-authored, not scripted
-
     meta = _load_meta(slug, root)
     pdf = _resolve_pdf(slug, root)
     pdf_repr = pdf.relative_to(root).as_posix() if pdf else entry.pdf_label
@@ -283,8 +289,18 @@ def build_node(slug: str, root: Path, entries) -> str | None:
     ts = meta.get("converted_at", "")
     ts = re.sub(r"\.\d+\+00:00$", "Z", ts) if isinstance(ts, str) else ""
 
-    body = _clean_body(summary_path.read_text(encoding="utf-8"), title)
-    description = _description(body, title)
+    # Body source: a hand-authored body file (net-new papers + papers whose
+    # existing summary is unusable) takes precedence; otherwise the approved
+    # summary is cleaned and migrated mechanically.
+    body_file = root / "scripts" / "kg_bodies" / f"{slug}.md"
+    summary_path = root / "summaries" / f"{slug}.md"
+    if body_file.is_file():
+        description, body = _read_body_file(body_file)
+    elif slug in HAND_AUTHOR or not summary_path.is_file():
+        return None  # awaiting hand-authored body
+    else:
+        body = _clean_body(summary_path.read_text(encoding="utf-8"), title)
+        description = _description(body, title)
     related = _related(slug, body)
 
     fm: list[str] = ["---", "type: Paper", f"title: {_yaml_scalar(title)}"]
