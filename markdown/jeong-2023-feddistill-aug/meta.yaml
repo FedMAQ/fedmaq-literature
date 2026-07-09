@@ -1,0 +1,19 @@
+slug: jeong-2023-feddistill-aug
+pdf: papers/03 KD/Jeong et al. - 2023 - Communication-Efficient On-Device Machine
+  Learning Federated Distillation and Augmentation under No.pdf
+converter: docling
+converted_at: '2026-07-09T10:35:40.519089+00:00'
+page_count: 6
+char_count: 21563
+qa:
+  passed: true
+  confidence: 0.928561879350676
+  mean_grade: excellent
+  low_grade: good
+  char_count: 21563
+  page_count: 6
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: good
+  mean_score: 0.928561879350676

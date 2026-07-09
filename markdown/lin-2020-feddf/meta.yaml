@@ -1,0 +1,19 @@
+slug: lin-2020-feddf
+pdf: papers/03 KD/Lin et al. - 2020 - Ensemble Distillation for Robust Model Fusion
+  in Federated Learning.pdf
+converter: docling
+converted_at: '2026-07-09T10:36:00.679180+00:00'
+page_count: 13
+char_count: 57775
+qa:
+  passed: true
+  confidence: 0.9660381290515103
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 57775
+  page_count: 13
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9660381290515103

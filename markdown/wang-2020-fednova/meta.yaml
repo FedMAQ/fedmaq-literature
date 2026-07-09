@@ -1,0 +1,19 @@
+slug: wang-2020-fednova
+pdf: papers/01 FL, Heterogeneity/Wang et al. - 2020 - Tackling the Objective Inconsistency
+  Problem in Heterogeneous Federated Optimization.pdf
+converter: docling
+converted_at: '2026-07-09T10:31:27.431493+00:00'
+page_count: 13
+char_count: 63101
+qa:
+  passed: true
+  confidence: 0.9652030227681407
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 63101
+  page_count: 13
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9652030227681407

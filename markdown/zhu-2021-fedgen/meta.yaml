@@ -1,0 +1,19 @@
+slug: zhu-2021-fedgen
+pdf: papers/03 KD/Zhu et al. - 2021 - Data-Free Knowledge Distillation for Heterogeneous
+  Federated Learning.pdf
+converter: docling
+converted_at: '2026-07-09T10:36:48.998223+00:00'
+page_count: 12
+char_count: 62316
+qa:
+  passed: true
+  confidence: 0.9525682040394222
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 62316
+  page_count: 12
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9525682040394222

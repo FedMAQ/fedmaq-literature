@@ -75,7 +75,7 @@ def resolve_pdf_path(slug: str, root: Path | None = None) -> Path:
     for entry in entries:
         if entry.slug != slug:
             continue
-        for pdf_path in sorted(papers.glob("*.pdf")):
+        for pdf_path in sorted(papers.rglob("*.pdf")):
             if _pdf_matches_label(pdf_path.name, entry.pdf_label):
                 return pdf_path
         raise FileNotFoundError(

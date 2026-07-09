@@ -33,6 +33,16 @@ Track conversion, indexing, and summary status. Run `fedmaq-lit ingest --slug <s
 | sravanthi-2025-energy-management         | Sravanthi et al. - 2025 - Federated Learning-Based Energy Management Systems...                   | —          | ready      | ready    | approved | application         |
 | thangakrishnan-2025-spatiotemporal-fl    | Suresh Thangakrishnan et al. - 2025 - Spatiotemporal Federated Learning for Privacy-Preserving... | —          | ready      | ready    | approved | application         |
 | wu-2022-fedkd                            | Wu et al. - 2022 - Communication-efficient federated learning via knowledge distillation          | FedKD      | ready      | ready    | approved | kd                  |
+| acar-2021-feddyn | Acar et al. - 2021 - Federated Learning Based on Dynamic Regularization | FedDyn | ready | none | none | heterogeneity |
+| karimireddy-2020-scaffold | Karimireddy et al. - 2020 - SCAFFOLD Stochastic Controlled Averaging for Federated Learning | SCAFFOLD | ready | none | none | heterogeneity |
+| li-2021-moon | Li et al. - 2021 - Model-Contrastive Federated Learning | MOON | ready | none | none | heterogeneity |
+| tan-2022-fedproto | Tan et al. - 2022 - FedProto Federated Prototype Learning across Heterogeneous Clients | FedProto | ready | none | none | heterogeneity |
+| wang-2020-fednova | Wang et al. - 2020 - Tackling the Objective Inconsistency Problem in Heterogeneous Federated... | FedNova | ready | none | none | heterogeneity |
+| alistarh-2017-qsgd | Alistarh et al. - 2017 - QSGD Communication-Efficient SGD via Gradient Quantization and Encoding | QSGD | ready | none | none | quantization |
+| bernstein-2018-signsgd | Bernstein et al. - 2018 - signSGD Compressed Optimisation for Non-Convex Problems | signSGD | ready | none | none | quantization |
+| jeong-2023-feddistill-aug | Jeong et al. - 2023 - Communication-Efficient On-Device Machine Learning... | — | ready | none | none | kd |
+| lin-2020-feddf | Lin et al. - 2020 - Ensemble Distillation for Robust Model Fusion in Federated Learning | FedDF | ready | none | none | kd |
+| zhu-2021-fedgen | Zhu et al. - 2021 - Data-Free Knowledge Distillation for Heterogeneous Federated Learning | FedGen | ready | none | none | kd |
 
 **Conversion:** `none` | `ready` | `failed`
 **Summary:** `none` | `draft` | `approved`
