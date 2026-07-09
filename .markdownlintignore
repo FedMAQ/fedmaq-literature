@@ -1,5 +1,0 @@
-# Ignore generated and agent-related markdown files from lint rules
-.cursor/
-markdown/
-summaries/
-syntheses/
