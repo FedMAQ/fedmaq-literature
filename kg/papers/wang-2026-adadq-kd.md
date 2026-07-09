@@ -35,7 +35,7 @@ The AdaDQ-KD algorithm operates within a standard synchronous FL framework with 
 ### 3. Mathematical Formulation
 
 - **Global Objective:**
-  $$ \min*{w \in \mathbb{R}^m} F(w) := \frac{1}{P} \sum*{i=1}^{P} F_i(w) $$
+  $$ \min_{w \in \mathbb{R}^m} F(w) := \frac{1}{P} \sum_{i=1}^{P} F_i(w) $$
     where $F_i(w)$ is the local objective for client $i$.
 
 - **Local Training Objective (with KD):**
@@ -50,16 +50,16 @@ The AdaDQ-KD algorithm operates within a standard synchronous FL framework with 
 
 - **Adaptive Precision Adjustment (Algorithm 1):**
   - **Expected Local Delay:**
-    $$ \mathbb{E}(T*{i,t+1}^{loc}) = \mathbb{E}(T*{i,t+1}^{comp}) + \frac{\log*2(2\lceil \frac{C}{\Delta*{i,t+1}} + 1 \rceil)}{\log*2(2\lceil \frac{C}{\Delta*{i,t}} + 1 \rceil)} T\_{i,t}^{comm} $$
+    $$ \mathbb{E}(T_{i,t+1}^{loc}) = \mathbb{E}(T_{i,t+1}^{comp}) + \frac{\log_2(2\lceil \frac{C}{\Delta_{i,t+1}} + 1 \rceil)}{\log_2(2\lceil \frac{C}{\Delta_{i,t}} + 1 \rceil)} T\_{i,t}^{comm} $$
   - **Straggler Identification:** Clients are sorted by $\mathbb{E}(T_{i,t}^{loc})$. The top $K = \lfloor kP \rfloor$ clients are identified as stragglers.
   - **Precision Reduction:** For each straggler, the precision coefficient $n_i$ is reduced by a search length $h$ until its expected delay is below a threshold $S$ (the delay of the $(K+1)$-th client).
 
 - **Global Aggregation:**
-  $$ w^{t+1} = w^t - \alpha*t \left( \frac{1}{P} \sum*{i=1}^{P} \hat{g}\_i^t \right) $$
+  $$ w^{t+1} = w^t - \alpha_t \left( \frac{1}{P} \sum_{i=1}^{P} \hat{g}\_i^t \right) $$
 
 - **Convergence Bound (Theorem 4):**
   Under standard assumptions (L-smoothness, bounded gradients), the convergence is bounded by:
-  $$ \sum*{t=0}^{T-1} \mathbb{E}[ \| \nabla F(w^t) \|^2 ] \leq \frac{1}{P} (M^2 + \sigma^2) + \frac{2[F(w^0) - F*{inf}]}{\alpha_0 T} $$
+  $$ \sum_{t=0}^{T-1} \mathbb{E}[ \| \nabla F(w^t) \|^2 ] \leq \frac{1}{P} (M^2 + \sigma^2) + \frac{2[F(w^0) - F_{inf}]}{\alpha_0 T} $$
     where $M^2$ bounds the gradient variance and $\sigma^2$ is the DP noise variance.
 
 ### 4. Limitations & Constraints
@@ -80,6 +80,13 @@ This paper is **highly relevant** to the FedMAQ thesis (Communication-Efficient 
   - **Knowledge Distillation:** The use of feature-level KD loss to mitigate accuracy loss from quantization and noise is a powerful technique that can be integrated into FedMAQ's KD module.
   - **DQ for DP:** The concept of using dithering quantization to simultaneously achieve compression and DP is a novel and efficient approach that FedMAQ could adopt or compare against.
 - **Gap Addressed by FedMAQ:** While AdaDQ-KD is a strong baseline, it uses a single, global teacher model. FedMAQ could potentially improve upon this by exploring **multi-teacher KD** or **ensemble distillation** to provide more robust and personalized guidance across heterogeneous clients, further improving accuracy under high heterogeneity.
+
+# Related
+
+- [DynFed: Adaptive Federated Learning via Quantization-Aware Knowledge Distillation](/papers/he-2025-dynfed.md)
+- [FedDT: A Communication-Efficient Federated Learning via Knowledge Distillation and Ternary Compression](/papers/he-2025-feddt.md)
+- [Quantization and Knowledge Distillation for Efficient Federated Learning on Edge Devices](/papers/qu-2020-quantization-kd.md)
+- [CFD: Communication-Efficient Federated Distillation via Soft-Label Quantization and Delta Coding](/papers/sattler-2022-cfd.md)
 
 # Citations
 

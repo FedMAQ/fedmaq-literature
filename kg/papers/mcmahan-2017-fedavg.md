@@ -31,7 +31,7 @@ timestamp: 2026-06-21T04:04:48Z
        - Split local data \( \mathcal{P}\_k \) into batches of size \( B \).
        - Perform \( E \) local epochs of SGD: \( w \leftarrow w - \eta \nabla \ell(w; b) \) for each batch \( b \).
        - Return new local model \( w\_{t+1}^k \) to server.
-    4. Server aggregates: \( w*{t+1} = \sum*{k=1}^K \frac{n*k}{n} w*{t+1}^k \).
+    4. Server aggregates: \( w_{t+1} = \sum_{k=1}^K \frac{n_k}{n} w_{t+1}^k \).
 - **Parameters controlling local computation**:
   - \( C \): fraction of clients used per round (parallelism).
   - \( E \): number of local epochs (training passes over local data).
@@ -42,13 +42,13 @@ timestamp: 2026-06-21T04:04:48Z
 - **Global objective** (finite-sum over all data points):
 
 \[
-\min*{w \in \mathbb{R}^d} f(w) \quad \text{where} \quad f(w) = \frac{1}{n} \sum*{i=1}^n f_i(w).
+\min_{w \in \mathbb{R}^d} f(w) \quad \text{where} \quad f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w).
 \]
 
 - **Decomposition over clients** (each client \( k \) has dataset \( \mathcal{P}\_k \) of size \( n_k \)):
 
 \[
-f(w) = \sum*{k=1}^K \frac{n_k}{n} F_k(w), \quad F_k(w) = \frac{1}{n_k} \sum*{i \in \mathcal{P}\_k} f_i(w).
+f(w) = \sum_{k=1}^K \frac{n_k}{n} F_k(w), \quad F_k(w) = \frac{1}{n_k} \sum_{i \in \mathcal{P}\_k} f_i(w).
 \]
 
 - **Local update on client \( k \)** (for one minibatch \( b \) of size \( B \)):
@@ -60,13 +60,13 @@ w \leftarrow w - \eta \nabla \ell(w; b).
 - **Server aggregation** (weighted average of returned models):
 
 \[
-w*{t+1} = \sum*{k=1}^K \frac{n*k}{n} w*{t+1}^k.
+w_{t+1} = \sum_{k=1}^K \frac{n_k}{n} w_{t+1}^k.
 \]
 
 - **Special case FedSGD** (\( E=1, B=\infty \)): each client computes full-batch gradient \( g_k = \nabla F_k(w_t) \), then:
 
 \[
-w*{t+1} = w_t - \eta \sum*{k=1}^K \frac{n_k}{n} g_k = w_t - \eta \nabla f(w_t).
+w_{t+1} = w_t - \eta \sum_{k=1}^K \frac{n_k}{n} g_k = w_t - \eta \nabla f(w_t).
 \]
 
 - **Local computation per round per client**: \( u_k = E \cdot \frac{n_k}{B} \) (expected updates; expected across clients: \( u = \frac{n}{K} \cdot \frac{E}{B} \)).
@@ -97,6 +97,14 @@ w*{t+1} = w_t - \eta \sum*{k=1}^K \frac{n_k}{n} g_k = w_t - \eta \nabla f(w_t).
   - FedAvg shows that additional computation is “free” relative to communication – FedMAQ can trade increased local computation for even lower communication.
   - The non‑IID and unbalanced nature of data (observed in MNIST non‑IID, Shakespeare) informs how aggressive quantization/distillation can be without harming convergence.
   - The empirical methodology (e.g., measuring rounds to target accuracy, tuning \( C, E, B \)) should be adopted for evaluating FedMAQ variants.
+
+# Related
+
+- [Federated Optimization in Heterogeneous Networks](/papers/li-2020-fedprox.md)
+- [SCAFFOLD: Stochastic Controlled Averaging for Federated Learning](/papers/karimireddy-2020-scaffold.md)
+- [Federated Learning Based on Dynamic Regularization](/papers/acar-2021-feddyn.md)
+- [Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization](/papers/wang-2020-fednova.md)
+- [FedPAQ: A Communication-Efficient Federated Learning Method with Periodic Averaging and Quantization](/papers/reisizadeh-2020-fedpaq.md)
 
 # Citations
 

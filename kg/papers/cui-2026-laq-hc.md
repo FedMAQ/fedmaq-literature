@@ -153,6 +153,12 @@ Thus LAQ-HC achieves \(O(1/\sqrt{T})\) convergence rate, same order as non-compr
 
 **Conclusion:** LAQ-HC provides a strong foundation for adaptive quantization in heterogeneous FL. FedMAQ can build upon its lightweight impact estimation and flag-based selection, while adding knowledge distillation and multi-adaptive compression to achieve even greater communication efficiency.
 
+# Related
+
+- [DAdaQuant: Doubly-adaptive quantization for communication-efficient Federated Learning](/papers/honig-2022-dadaquant.md)
+- [Communication-Efficient Federated Learning for Heterogeneous Edge Devices Based on Adaptive Gradient Quantization](/papers/liu-2023-adagq.md)
+- [FedPAQ: A Communication-Efficient Federated Learning Method with Periodic Averaging and Quantization](/papers/reisizadeh-2020-fedpaq.md)
+
 # Citations
 
 [1] Full-text conversion: [markdown/cui-2026-laq-hc/paper.md](markdown/cui-2026-laq-hc/paper.md)

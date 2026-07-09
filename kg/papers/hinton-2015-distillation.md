@@ -147,6 +147,12 @@ The techniques from this paper can be **directly integrated** into FedMAQ:
 
 This paper is **not** a direct baseline for FedMAQ (which focuses on communication-efficient FL), but its **core techniques** (distillation, temperature scaling, soft targets) are **essential building blocks** for the KD component of FedMAQ. The paper provides the theoretical foundation for how to transfer knowledge from a large model to a small one, which is exactly what FedMAQ needs to do in a distributed setting.
 
+# Related
+
+- [FedMD: Heterogenous Federated Learning via Model Distillation](/papers/li-2019-fedmd.md)
+- [Ensemble Distillation for Robust Model Fusion in Federated Learning](/papers/lin-2020-feddf.md)
+- [Communication-efficient federated learning via knowledge distillation](/papers/wu-2022-fedkd.md)
+
 # Citations
 
 [1] Full-text conversion: [markdown/hinton-2015-distillation/paper.md](markdown/hinton-2015-distillation/paper.md)

@@ -29,15 +29,15 @@ Federated Learning (FL) suffers from high communication costs due to repeated tr
 
 - FL with a server and \( N \) clients. Each client \( c_k \) has local dataset \( D_k \).
 - Use FedAvg (with FedProx proximal term) for local training.
-- In each round \( t \), server sends global model \( p*t \) to a random subset \( S_t \) of \( K \) clients. Clients compute updates \( p_t^{k+1} - p_t \), quantize them, and send to server. Server aggregates:
+- In each round \( t \), server sends global model \( p_t \) to a random subset \( S_t \) of \( K \) clients. Clients compute updates \( p_t^{k+1} - p_t \), quantize them, and send to server. Server aggregates:
   \[
-  p*{t+1} = p*t + \sum*{k \in S*t} \frac{|D_k|}{\sum_j |D_j|} Q(p*{t+1}^k - p_t)
+  p_{t+1} = p_t + \sum_{k \in S_t} \frac{|D_k|}{\sum_j |D_j|} Q(p_{t+1}^k - p_t)
   \]
 
 **Key Innovations:**
 
 1. **Federated QSGD**: Adaptation of QSGD gradient quantizer for parameter updates in FL. Uses difference coding (quantize \( p\_{t+1}^k - p_t \)), stochastic fixed-point quantization with \( q \) bins per sign, followed by 0-run-length encoding and Elias \( \omega \) coding.
-2. **Time-Adaptive Quantization**: Monotonically increases quantization level \( q*t \) based on a moving average of the estimated global loss. \( q_t \) doubles when the loss plateaus, bounded by \( q*{\max} \).
+2. **Time-Adaptive Quantization**: Monotonically increases quantization level \( q_t \) based on a moving average of the estimated global loss. \( q_t \) doubles when the loss plateaus, bounded by \( q_{\max} \).
 3. **Client-Adaptive Quantization**: Assigns quantization levels \( q_k \) to clients in a round to minimize total communication \( \sum_k q_k \) while keeping the expected variance of the quantized aggregate equal to that of a static quantizer with level \( q \). Optimal solution derived via Lagrangian optimization: \( q_i \propto w_i^{2/3} \), where \( w_i \) are client aggregation weights.
 
 ## 3. Mathematical Formulation
@@ -59,23 +59,23 @@ For a parameter vector \( p \), quantize elementwise:
 
 ### Time-Adaptive Quantization Rule
 
-- Initialize \( q*1 = q*{\min} \).
+- Initialize \( q_1 = q_{\min} \).
 - Estimate global loss: \( \hat{G}_t = \sum_{k \in S_t} \frac{|D_k|}{\sum_l |D_l|} F_k(p_t) \)
 - Moving average: \( \bar{G}_t = \psi \bar{G}_{t-1} + (1-\psi) \hat{G}\_t \), where the smoothing weight \( \psi \) is set to 0.9.
-- If \( \bar{G}_t \geq \bar{G}_{t-\phi} - \phi \) (plateau detected over the lookback window of \( \phi \) rounds), then double the quantization level: \( q*t = 2 q*{t-1} \) (capped at \( q\_{\max} \)).
+- If \( \bar{G}_t \geq \bar{G}_{t-\phi} - \phi \) (plateau detected over the lookback window of \( \phi \) rounds), then double the quantization level: \( q_t = 2 q_{t-1} \) (capped at \( q\_{\max} \)).
 - Once the quantization level is doubled, it is kept fixed for at least \( \phi \) rounds to allow loss reductions to manifest in the moving average before another doubling can occur.
 
 ### Client-Adaptive Quantization (Theorem 1)
 
-Assume parameters \( p*1, \dots, p_K \sim \mathcal{U}[-t, t] \) and weights \( w_i = |D_i| / \sum_j |D_j| \).
+Assume parameters \( p_1, \dots, p_K \sim \mathcal{U}[-t, t] \) and weights \( w_i = |D_i| / \sum_j |D_j| \).
 Define the expected variance of the quantized aggregate:
 \[
-\mathbb{E}*{p*1\dots p_K}[\text{Var}(e^{q_1\dots q_K}_p)] = \frac{t^2}{6} \sum*{i=1}^K \frac{w*i^2}{q_i^2}
+\mathbb{E}_{p_1\dots p_K}[\text{Var}(e^{q_1\dots q_K}_p)] = \frac{t^2}{6} \sum_{i=1}^K \frac{w_i^2}{q_i^2}
 \]
 Minimize total cost \( \sum_i q_i \) subject to fixing this variance equal to that of static quantizer with level \( q \).
 Optimal solution:
 \[
-q_i = \sqrt{\frac{a}{b}} \cdot w_i^{2/3}, \quad a = \sum*{j=1}^K w*j^{2/3}, \quad b = \sum*{j=1}^K \frac{w_j^2}{q^2}
+q_i = \sqrt{\frac{a}{b}} \cdot w_i^{2/3}, \quad a = \sum_{j=1}^K w_j^{2/3}, \quad b = \sum_{j=1}^K \frac{w_j^2}{q^2}
 \]
 In practice, round to integer: \( q_i = \max(1, \text{round}\big(\sqrt{a/b} \cdot w_i^{2/3}\big)) \).
 
@@ -85,8 +85,8 @@ At round \( t \):
 
 1. Determine \( q_t \) via time-adaptive rule (using moving average loss).
 2. For all sampled clients \( k \in S_t \), compute client quantization levels \( q_k \) using client-adaptive formula with \( q = q_t \).
-3. Each client sends quantized update \( Q*{q_k}(p*{t+1}^k - p_t) \).
-4. Server aggregates: \( p*{t+1} = p_t + \sum_k w_k Q*{q*k}(p*{t+1}^k - p_t) \).
+3. Each client sends quantized update \( Q_{q_k}(p_{t+1}^k - p_t) \).
+4. Server aggregates: \( p_{t+1} = p_t + \sum_k w_k Q_{q_k}(p_{t+1}^k - p_t) \).
 
 **Convergence guarantee:** DAdaQuant inherits convergence from FedPAQ if the quantizer is unbiased and has bounded variance for minimum \( q=1 \). Federated QSGD satisfies this.
 
@@ -94,7 +94,7 @@ At round \( t \):
 
 - **Communication bottleneck focus**: Only addresses uplink compression; downlink (server→client) assumed less constrained.
 - **Assumption on parameter distribution**: Client-adaptive optimality theorem assumes parameters are uniformly distributed in \([-t, t]\). May not hold exactly for all models/layers.
-- **Time-adaptation sensitivity**: Requires careful tuning of \( \phi, \psi, q*{\min}, q*{\max} \). For datasets that converge quickly or need high precision early (e.g., Shakespeare), initialization \( q*{\min} = q*{\max}/2 \) is used, reducing adaptation range.
+- **Time-adaptation sensitivity**: Requires careful tuning of \( \phi, \psi, q_{\min}, q_{\max} \). For datasets that converge quickly or need high precision early (e.g., Shakespeare), initialization \( q_{\min} = q_{\max}/2 \) is used, reducing adaptation range.
 - **Overhead**: Additional forward pass per client to compute local loss \( F_k(p_t) \) for moving average (≈1% overhead reported).
 - **No knowledge distillation**: Paper relies solely on quantization; no student-teacher or KD component.
 - **Heterogeneity handling**: Simulated system heterogeneity by reducing epochs for some clients, but client-adaptive quantization does not account for varying compute power (only data size).

@@ -45,6 +45,12 @@ timestamp: 2026-06-21T10:17:35Z
 - **Validates the FedMAQ premise on real data**: it empirically confirms that combining compression with FL yields large communication savings **without accuracy loss** in an IoT setting — the exact value proposition FedMAQ generalizes with *multi-adaptive* quantization and knowledge distillation.
 - **Key insight to integrate**: FL-CM applies a **static** compression stage. FedMAQ's contribution over such application work is to make compression **adaptive** (per client/layer/round) and to add distillation — so this paper is a strong "before" baseline against which FedMAQ's adaptivity gains can be measured on spatiotemporal forecasting tasks.
 
+# Related
+
+- [Communication-Efficient Federated Learning for Power Load Forecasting in Electric IoTs](/papers/mao-2023-power-load.md)
+- [Advancing Electric Load Forecasting: Leveraging Federated Learning for Distributed, Non-Stationary, and Discontinuous Time Series](/papers/richter-2024-electric-load.md)
+- [Federated Learning for Smart Cities: A Thematic Review of Challenges and Approaches](/papers/alterkawi-2025-smart-cities-review.md)
+
 # Citations
 
 [1] Full-text conversion: [markdown/joseph-2026-air-quality/paper.md](markdown/joseph-2026-air-quality/paper.md)

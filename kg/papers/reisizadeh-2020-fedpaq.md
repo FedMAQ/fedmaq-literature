@@ -146,6 +146,12 @@ This yields an `$\mathcal{O}(1/\sqrt{T})$` rate to a stationary point, even when
 
 In summary, FedPAQ is a natural starting point for FedMAQ: it addresses two of the three communication‑saving pillars (periodic averaging and quantization) and provides rigorous convergence analysis. FedMAQ can build upon this by adding multi‑level adaptive quantization and knowledge distillation, targeting further communication reductions while maintaining or improving model accuracy.
 
+# Related
+
+- [Communication-Efficient Learning of Deep Networks from Decentralized Data](/papers/mcmahan-2017-fedavg.md)
+- [QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding](/papers/alistarh-2017-qsgd.md)
+- [DAdaQuant: Doubly-adaptive quantization for communication-efficient Federated Learning](/papers/honig-2022-dadaquant.md)
+
 # Citations
 
 [1] Full-text conversion: [markdown/reisizadeh-2020-fedpaq/paper.md](markdown/reisizadeh-2020-fedpaq/paper.md)

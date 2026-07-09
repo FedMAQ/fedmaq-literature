@@ -114,6 +114,12 @@ This paper serves as a **baseline application scenario** for FedMAQ rather than 
 
 **Recommendation:** This paper provides a realistic application domain and baseline performance metrics (17.6% energy reduction, 21.3% peak demand reduction) against which FedMAQ's communication-efficiency gains can be benchmarked while maintaining comparable forecasting accuracy (8.7% MAPE).
 
+# Related
+
+- [Federated Learning-Based Energy Management Systems for Privacy-Preserving Demand Forecasting in Smart Cities](/papers/sravanthi-2025-energy-management.md)
+- [Spatiotemporal Federated Learning for Privacy-Preserving Load Forecasting and Appliance Scheduling in Smart City Homes](/papers/thangakrishnan-2025-spatiotemporal-fl.md)
+- [Smart meter-based energy consumption forecasting for smart cities using adaptive federated learning](/papers/abdulla-2024-smart-meter.md)
+
 # Citations
 
 [1] Full-text conversion: [markdown/singh-2026-smart-campus/paper.md](markdown/singh-2026-smart-campus/paper.md)

@@ -157,6 +157,12 @@ The survey identifies several open challenges that FedMAQ can address:
 
 **Conclusion:** This survey provides essential theoretical foundations and architectural templates for developing FedMAQ, particularly in quantization techniques, knowledge distillation frameworks, and feedback compression mechanisms. FedMAQ can build upon these foundations by introducing adaptive, multi-technique compression that dynamically adjusts to network conditions and client capabilities.
 
+# Related
+
+- [Non-IID data in Federated Learning: A Survey with Taxonomy, Metrics, Methods, Frameworks and Future Directions](/papers/jimenez-2024-non-iid-survey.md)
+- [Knowledge Distillation in Federated Learning: A Survey on Long Lasting Challenges and New Solutions](/papers/qin-2025-kd-survey.md)
+- [FedPAQ: A Communication-Efficient Federated Learning Method with Periodic Averaging and Quantization](/papers/reisizadeh-2020-fedpaq.md)
+
 # Citations
 
 [1] Full-text conversion: [markdown/le-2024-compression-survey/paper.md](markdown/le-2024-compression-survey/paper.md)

@@ -120,6 +120,12 @@ where \(\mathcal{C}(\cdot)\) is the number of bits for the \(k\)-th parameter.
   - FedMAQ’s **multi-adaptive quantization** could be built upon CMULA-FL by dynamically adjusting compression ratios based on update importance, extending the fixed γ‑compression approach.  
 - **Comparison gap:** CMULA-FL lacks KD, so it cannot leverage model‑level knowledge transfer; hence FedMAQ would likely achieve better utility under severe communication budgets by using a KD loss. CMULA-FL is a complementary work focusing solely on compression and upload frequency.
 
+# Related
+
+- [Advancing Electric Load Forecasting: Leveraging Federated Learning for Distributed, Non-Stationary, and Discontinuous Time Series](/papers/richter-2024-electric-load.md)
+- [Air Quality Prediction Using Communication-Efficient Federated Learning with Compressed Deep Learning Models](/papers/joseph-2026-air-quality.md)
+- [FedPAQ: A Communication-Efficient Federated Learning Method with Periodic Averaging and Quantization](/papers/reisizadeh-2020-fedpaq.md)
+
 # Citations
 
 [1] Full-text conversion: [markdown/mao-2023-power-load/paper.md](markdown/mao-2023-power-load/paper.md)
