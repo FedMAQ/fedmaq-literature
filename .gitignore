@@ -1,5 +1,5 @@
-# Papers
-papers/
+# Papers (PDF library at repo root only — NOT kg/papers/ OKF nodes)
+/papers/
 
 # Local RAG state (not committed)
 storage/
