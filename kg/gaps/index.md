@@ -7,14 +7,14 @@ it (6 nodes).
 
 ## Quantization under heterogeneity
 
-- [Joint precision scheduling across round, client, and layer](/gaps/adaptive-precision-scheduling.md) - existing methods adapt one axis; the multi-axis schedule is unsolved.
+- [Combining multiple adaptive signals into a client-level precision budget](/gaps/adaptive-precision-scheduling.md) - existing methods key precision on one signal; how resource, training-state, and data-richness should combine is open.
 - [Heterogeneity-aware quantization schedules](/gaps/heterogeneity-aware-quantization.md) - precision is allocated by bandwidth, rarely by statistical skew.
 - [Quantization noise vs client drift interaction](/gaps/quantization-drift-interaction.md) - how compression error compounds with drift correction is uncharacterized.
 
 ## Distillation & the FedMAQ niche
 
 - [Proxy-dataset dependence of federated KD](/gaps/proxy-data-dependence.md) - proxy-based KD needs public data; data-free alternatives pay an accuracy penalty.
-- [Scarcity of multi-adaptive Q + KD methods](/gaps/multi-adaptive-q-kd-scarcity.md) - joint methods fix single precision and single teacher; the FedMAQ niche.
+- [Joint Q+KD omits data richness and a combination study](/gaps/multi-adaptive-q-kd-scarcity.md) - DynFed fuses resource+state quantization with multi-teacher KD but omits data richness and a study of the combination logic; the FedMAQ niche.
 
 ## Evaluation
 
