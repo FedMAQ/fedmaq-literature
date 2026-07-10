@@ -24,11 +24,17 @@ by client weight; DynFed and AdaDQ-KD by resource/delay. None sets precision fro
 direct measure of a client's distributional divergence, and drift-correction methods
 that do model heterogeneity assume full precision.
 
-## FedMAQ's angle
+## FedMAQ and this gap
 
-FedMAQ's heterogeneity-aware precision means the schedule should read statistical skew,
-not just bandwidth — spending bits where drift is worst and leaning on distillation
-elsewhere. This gap defines a design axis of the multi-adaptive quantizer.
+FedMAQ does *not* close this gap. Its quantizer conditions bit-width on data
+*quantity* (dataset size) and *training state* (gradient norm), not on any direct
+measure of a client's distributional divergence or label/feature skew. FedMAQ
+addresses statistical heterogeneity at a different stage entirely: server-side
+ensemble knowledge distillation reconciles the functional drift of non-IID clients,
+while the quantizer itself remains skew-agnostic. Conditioning precision directly on
+distributional divergence therefore remains an open design axis that FedMAQ leaves
+unaddressed -- in FedMAQ the statistical-heterogeneity load is carried by
+distillation, not by the quantizer.
 
 ## Sources
 
@@ -41,6 +47,6 @@ elsewhere. This gap defines a design axis of the multi-adaptive quantizer.
 
 - [Adaptive bit-width](/concepts/adaptive-bit-width.md)
 - [Non-IID heterogeneity](/concepts/non-iid-heterogeneity.md)
-- [Joint precision scheduling is unsolved](/gaps/adaptive-precision-scheduling.md)
+- [Combining multiple adaptive signals into a client-level precision budget](/gaps/adaptive-precision-scheduling.md)
 - [Quantization-drift interaction](/gaps/quantization-drift-interaction.md)
 - [AdaGQ](/methods/adagq.md), [LAQ-HC](/methods/laq-hc.md)

@@ -35,8 +35,9 @@ non-IID data, where a static schedule tuned for the average client mis-serves th
 
 ## Open gaps
 
-- How to *schedule* precision jointly across round, client, and layer rather than one
-  axis at a time: [/gaps/adaptive-precision-scheduling.md](/gaps/adaptive-precision-scheduling.md).
+- How to *combine* multiple adaptive signals (resource, training-state, data-richness)
+  into a client-level precision budget rather than keying on one signal at a time:
+  [/gaps/adaptive-precision-scheduling.md](/gaps/adaptive-precision-scheduling.md).
 - Making the schedule explicitly heterogeneity-aware rather than bandwidth-only:
   [/gaps/heterogeneity-aware-quantization.md](/gaps/heterogeneity-aware-quantization.md).
 
