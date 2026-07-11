@@ -14,4 +14,4 @@ description: Author an OKF Paper node in kg/papers/{slug}.md
 5. There is no approval gate — commit directly; review is via `git diff`.
 
 Verify OKF conformance: parseable frontmatter, non-empty `type`, and resolving
-intra-bundle links (see `kg-conventions.md` and `SPEC.md`).
+intra-bundle links (see `kg-conventions.md` and `docs/okf.md`).

@@ -19,7 +19,7 @@ kg/                   # OKF knowledge-graph bundle (the curated, agent-readable 
   gaps/               #   `type: Gap` nodes (scaffolded)
 src/fedmaq_literature/  # PDF conversion pipeline + registry + CLI
 scripts/              # build_kg_papers.py (migration) + kg_bodies/ (hand-authored provenance)
-SPEC.md               # the OKF v0.1 specification this bundle conforms to
+docs/okf.md           # the OKF v0.1 specification this bundle conforms to
 ```
 
 Two layers, two purposes:
@@ -61,9 +61,9 @@ On Windows, if a HuggingFace model download fails on symlinks, the converter set
   [`.claude/rules/okf-paper-template.md`](.claude/rules/okf-paper-template.md).
 - Conventions for the bundle live in
   [`.claude/rules/kg-conventions.md`](.claude/rules/kg-conventions.md); the format
-  itself is specified in [`SPEC.md`](SPEC.md).
+  itself is specified in [`docs/okf.md`](docs/okf.md).
 
 ## Agent onboarding
 
-1. Read [../fedmaq-experiments/HANDOFF.md](../fedmaq-experiments/HANDOFF.md).
-2. Read [AGENTS.md](AGENTS.md). Domain rules: `../fedmaq-experiments/.cursor/rules/`.
+1. Read [.claude/project/changelog.md](.claude/project/changelog.md).
+2. Read [CLAUDE.md](CLAUDE.md). Domain rules: `../fedmaq-experiments/.claude/rules/`.
