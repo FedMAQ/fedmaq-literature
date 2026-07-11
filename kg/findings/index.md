@@ -19,4 +19,4 @@ of supporting papers, and links to the [gaps](/gaps/) it leaves open (8 nodes).
 ## Validation & positioning
 
 - [Application deployments validate comm-efficient FL on real non-IID data](/findings/application-fl-validation.md) - energy, load, air-quality, and smart-city studies ground the thesis in realistic benchmarks.
-- [No method jointly optimizes multi-axis compression and heterogeneity robustness](/findings/no-unified-compression-heterogeneity-method.md) - the survey-and-corpus consensus that defines the FedMAQ niche.
+- [No existing method combines multi-signal adaptive compression with heterogeneity robustness](/findings/no-unified-compression-heterogeneity-method.md) - the survey-and-corpus consensus that defines the FedMAQ niche.

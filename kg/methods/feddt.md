@@ -44,10 +44,12 @@ Clients must host and train both teacher and student — a cost for weak devices
 
 ## 5. FedMAQ relevance
 
-FedDT is a SOTA joint KD+quantization baseline. Its adaptive distillation loss and
-layer-wise ternary scheme are integrable, and its single (ternary) precision is exactly
-what FedMAQ generalizes to *multi-adaptive* mixed precision per layer/client. Its
-server re-quantization step informs FedMAQ's aggregator design.
+FedDT is a SOTA joint KD+quantization baseline. Its single (ternary) precision is
+exactly what [FedMAQ](/methods/fedmaq.md) generalizes — to a per-client, per-round
+scalar bit-width driven by resource, training-state, and data-richness signals,
+not a layer-wise scheme. FedDT's local teacher-to-student distillation also
+differs from FedMAQ, which performs no local distillation at all and defers
+error-mitigation entirely to server-side proxy ensemble KD.
 
 # Related
 

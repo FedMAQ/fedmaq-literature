@@ -45,11 +45,14 @@ distribution.
 
 ## 5. FedMAQ relevance
 
-DAdaQuant is the closest single-technique precursor to FedMAQ's *multi-adaptive*
-quantization and a primary SOTA baseline. FedMAQ generalizes its two adaptation axes
-(time + client) with more (e.g. per-layer) and pairs them with knowledge
-distillation — the paper itself suggests driving the time-adaptive schedule by a
-distillation loss. Its closed-form \(w_i^{2/3}\) rule is a reusable building block.
+DAdaQuant is the closest single-technique precursor to [FedMAQ](/methods/fedmaq.md)'s
+*multi-adaptive* quantization and a primary SOTA baseline. FedMAQ does not extend
+DAdaQuant's two axes directly — it replaces time-adaptivity with a per-round
+gradient-norm (training-state) signal and adds a data-richness signal, combining
+both at the client level within a hard memory ceiling, then pairs this with
+server-side ensemble distillation — the paper itself suggests driving the
+time-adaptive schedule by a distillation loss. Its closed-form \(w_i^{2/3}\) rule
+remains a candidate building block outside FedMAQ's current scope.
 
 # Related
 

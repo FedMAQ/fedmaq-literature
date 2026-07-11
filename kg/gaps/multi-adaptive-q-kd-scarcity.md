@@ -33,13 +33,16 @@ signal *and* systematically determines how the signals should combine.
 
 ## FedMAQ's angle
 
-FedMAQ is defined by this gap: it adds a data-richness signal to DynFed's
-resource-and-state design and evaluates specific combination logics (linear,
-multiplicative, gradient-primary data-modulated, and threshold-based) to determine
-the optimal interaction between gradient norm and dataset size under a hard memory
-constraint, coupled to server-side ensemble distillation. The contribution is the
-combination *principle* and an open, reproducible implementation -- not a claimed
-novel round-by-client-by-layer precision mechanism.
+[FedMAQ](/methods/fedmaq.md) is defined by this gap: it adds a data-richness signal
+to DynFed's resource-and-state design and evaluates a resource-only control plus
+four combination logics (linear, multiplicative, gradient-primary data-modulated,
+and threshold-based) via a pre-registered winner rule -- least cumulative
+communication to a 90%-of-FedAvg target accuracy, subject to an accuracy-floor
+disqualification -- to determine the optimal interaction between gradient norm and
+dataset size under a hard memory constraint, coupled to server-side ensemble
+distillation with equal-weight teacher averaging (not DynFed's active selection).
+The contribution is the combination *principle* and an open, reproducible
+implementation -- not a claimed novel round-by-client-by-layer precision mechanism.
 
 ## Sources
 

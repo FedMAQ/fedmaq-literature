@@ -45,11 +45,13 @@ convergence; dropout above ~20% degrades results.
 
 ## 5. FedMAQ relevance
 
-LAQ-HC is a recent SOTA adaptive-quantization baseline whose lightweight impact
-estimation and flag/knapsack client selection are directly reusable in FedMAQ. The
-paper's own future work — adding knowledge distillation and combining quantization
-with sparsification / low-rank compression — is essentially the FedMAQ program, making
-it both baseline and design template.
+LAQ-HC is a recent SOTA adaptive-quantization baseline. The paper's own suggested
+future work of adding knowledge distillation is the part of its program
+[FedMAQ](/methods/fedmaq.md) pursues; its further suggestion of combining
+quantization with sparsification or low-rank compression is **not** — FedMAQ's
+scope is quantization only, excluding architectural compression. LAQ-HC's
+lightweight impact estimation remains a candidate alternative to FedMAQ's
+gradient-norm signal, outside its current formulation set.
 
 # Related
 

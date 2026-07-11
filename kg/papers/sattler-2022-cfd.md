@@ -100,7 +100,7 @@ CFD is a highly relevant baseline for the knowledge distillation and soft-label 
 
 ### Gap Addressed by FedMAQ
 
-While CFD uses a static quantization level $b$, FedMAQ proposes multi-adaptive quantization, allowing the bit-width to adapt dynamically across training rounds and layers. Additionally, FedMAQ can optimize client-side resources by combining this compression with adaptive client workloads, mitigating the client-side computational overhead identified as a key limitation in CFD.
+While CFD uses a static quantization level $b$, [FedMAQ](/methods/fedmaq.md) proposes multi-adaptive quantization: the bit-width adapts per client per round, driven by resource, training-state, and data-richness signals, with no layer axis. FedMAQ also compresses gradients directly rather than soft-label logits, a different compression object from CFD's.
 
 # Related
 

@@ -43,10 +43,13 @@ data and an unbiased, variance-bounded quantizer.
 
 ## 5. FedMAQ relevance
 
-FedPAQ is a key baseline that already covers two of FedMAQ's three pillars (periodic
-averaging + quantization). Its quantization is *fixed* single-precision; FedMAQ makes
-it multi-adaptive (per client / layer / round) and adds knowledge distillation.
-DAdaQuant's convergence result explicitly inherits from FedPAQ, so FedPAQ anchors the
+FedPAQ is a key baseline sharing FedMAQ's periodic-averaging and partial-participation
+structure (both inherited from FedAvg's local-epoch design) and its quantization
+axis. Its quantization is *fixed* single-precision; [FedMAQ](/methods/fedmaq.md)
+makes it multi-adaptive — driven by
+resource, training-state, and data-richness signals at a per-client, per-round
+scalar granularity — and adds server-side knowledge distillation. DAdaQuant's
+convergence result explicitly inherits from FedPAQ, so FedPAQ anchors the
 theoretical chain FedMAQ extends.
 
 # Related

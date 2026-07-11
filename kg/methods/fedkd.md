@@ -45,9 +45,10 @@ scale). Cross-silo focus; assumes an honest server and secure channels.
 
 FedKD is the clearest precursor to FedMAQ's *joint* KD + compression premise, and a
 high-bar baseline (~95% reduction). Its dynamic-threshold schedule is a design template
-FedMAQ can mirror for adaptive *bit-widths*; FedMAQ argues quantization may beat SVD on
-quantization-friendly hardware while keeping the mentee-mentor communication/personalization
-split.
+[FedMAQ](/methods/fedmaq.md) echoes for adaptive *bit-widths*, but FedMAQ does **not**
+retain FedKD's mentee-mentor split: FedMAQ's clients train only a student, deferring
+the teacher role entirely to the server-side ensemble, so no client hosts or trains a
+local teacher.
 
 # Related
 

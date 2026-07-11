@@ -116,9 +116,9 @@ FedDT is directly relevant to the FedMAQ thesis (**Communication-Efficient FL vi
 - **Baseline Comparison:** FedDT can serve as a strong baseline for FedMAQ. It demonstrates that a two-level compression (KD + ternary quantization) achieves ~78% communication reduction with 7.85% accuracy improvement over baselines.  
 - **Techniques for Integration:**  
   - The **adaptive distillation loss** (dynamic weighting of task, distillation, and hidden losses) could be incorporated into FedMAQ’s KD module to handle non-IID data more robustly.  
-  - The **ternary quantization scheme** (TTQ) with layer-wise adaptive thresholds provides a concrete quantization strategy that FedMAQ could extend to multi-adaptive (e.g., mixed-precision) quantization.  
-  - The **server-side re-quantization** step ensures consistency between aggregated and broadcast models, a design choice relevant for FedMAQ’s aggregation.  
-- **Gap:** FedDT uses a single quantization level (ternary) and a fixed student model. FedMAQ could explore multiple adaptive quantization levels per layer or per client, and combine with more advanced KD (e.g., contrastive or prototype-based) to further improve efficiency and accuracy.
+  - The **ternary quantization scheme** (TTQ) with layer-wise adaptive thresholds is FedDT's own strategy; [FedMAQ](/methods/fedmaq.md) instead varies bit-width per client per round from resource, training-state, and data-richness signals, with no layer axis.
+  - The **server-side re-quantization** step ensures consistency between aggregated and broadcast models, a design choice relevant for FedMAQ's aggregation.  
+- **Gap:** FedDT uses a single quantization level (ternary) and a fixed student model. FedMAQ instead uses multiple adaptive quantization levels per client per round (not per layer), selected via its formulation study.
 
 # Related
 

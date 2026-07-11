@@ -155,7 +155,7 @@ $$
 
 ## 5. FedMAQ Thesis Relevance
 
-**Direct Baseline:** AdaGQ is a strong baseline for a thesis on **FedMAQ (Communication‑Efficient Federated Learning via Multi‑Adaptive Quantization and Knowledge Distillation)**. AdaGQ already demonstrates that *adaptive* and *heterogeneous* quantization can significantly reduce training time. FedMAQ can use AdaGQ as a comparison point to highlight any additional gains from incorporating multiple adaptation strategies (e.g., layer‑wise quantization, sparsity) and knowledge distillation.
+**Direct Baseline:** AdaGQ is a strong baseline for a thesis on **FedMAQ (Communication‑Efficient Federated Learning via Multi‑Adaptive Quantization and Knowledge Distillation)**. AdaGQ already demonstrates that *adaptive* and *heterogeneous* quantization can significantly reduce training time. [FedMAQ](/methods/fedmaq.md) uses AdaGQ as a comparison point to highlight the gain from combining a data-richness signal with a resource-capped, gradient-norm-driven signal and coupling the result to server-side knowledge distillation — not from layer-wise quantization or sparsification, both outside FedMAQ's quantization-only scope.
 
 **Techniques that can be integrated into FedMAQ:**
 
@@ -164,7 +164,7 @@ $$
 - **Loss‑decrease‑rate driven adaptation** (Eq. 5–9) – provides a principled way to trade off per‑round time vs. convergence speed; FedMAQ could unify this with knowledge distillation objectives.
 - **Per‑client auxiliary quantization overhead** – the two‑quantization trick to obtain the derivative sign is light; FedMAQ can adopt it for any parameter that affects communication efficiency.
 
-**Contrast:** While AdaGQ focuses solely on gradient quantization, FedMAQ could combine multiple compression dimensions (quantization, sparsification, low‑rank) and add knowledge distillation to further reduce communication rounds. AdaGQ’s method of aligning client times via quantization bit assignment can serve as a plug‑in module for the “multi‑adaptive” component of FedMAQ.
+**Contrast:** While AdaGQ focuses solely on gradient quantization, FedMAQ stays within that same axis — it does not add sparsification or low-rank compression — and instead adds a data-richness signal alongside resource and training-state, plus server-side knowledge distillation, to further reduce communication. AdaGQ's straggler-equalizing bit assignment addresses wall-clock round time, a dimension FedMAQ tracks diagnostically via its analytical cost model rather than optimizes directly.
 
 # Related
 

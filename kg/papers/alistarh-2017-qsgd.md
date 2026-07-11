@@ -50,7 +50,7 @@ where \(\xi_i \in \{0, 1/s, \dots, 1\}\) is a random level equal to \(\lceil \cd
 ## 5. FedMAQ Thesis Relevance
 
 - **Foundational quantization baseline**: QSGD is the canonical *provably-convergent, unbiased, tunable* gradient quantizer and the theoretical ancestor of federated quantization methods like [FedPAQ](/papers/reisizadeh-2020-fedpaq.md) and [DAdaQuant](/papers/honig-2022-dadaquant.md). It grounds FedMAQ's quantization component in convergence theory.
-- **The bits-vs-variance trade-off is FedMAQ's core lever**: QSGD's explicit variance bound as a function of levels \(s\) is exactly the knob FedMAQ makes **multi-adaptive** — varying \(s\) across clients, layers, and rounds rather than fixing it. QSGD provides the per-setting cost model FedMAQ's schedule optimizes over.
+- **The bits-vs-variance trade-off is FedMAQ's core lever**: QSGD's explicit variance bound as a function of levels \(s\) is exactly the knob [FedMAQ](/methods/fedmaq.md) makes **multi-adaptive** — varying \(s\) per client per round by resource, training-state, and data-richness signals, with no layer axis. QSGD provides the per-setting cost model FedMAQ's schedule optimizes over.
 - **Key insight to integrate**: unbiasedness is what preserves convergence under compression. FedMAQ's adaptive quantizer should retain (or explicitly correct for) unbiasedness so that adapting bit-widths does not silently bias the aggregate — the property QSGD proves is essential.
 
 # Related

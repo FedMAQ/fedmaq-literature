@@ -44,10 +44,12 @@ convergence. Analysis is IID-leaning.
 
 ## 5. FedMAQ relevance
 
-QSGD's explicit variance bound as a function of \(s\) is exactly the lever FedMAQ
-makes *multi-adaptive* — varying \(s\) across clients, layers, and rounds. It also
-supplies the essential lesson: unbiasedness is what preserves convergence, so an
-adaptive quantizer must remain unbiased (or correct for bias) as it varies bit-widths.
+QSGD's explicit variance bound as a function of \(s\) is exactly the lever
+[FedMAQ](/methods/fedmaq.md) makes *multi-adaptive* — varying \(s\) per client per
+round by resource, training-state, and data-richness signals (no layer axis). It
+also supplies the essential lesson: unbiasedness is what preserves convergence
+(and is the reason FedMAQ commits to stochastic rather than deterministic
+rounding), so an adaptive quantizer must remain unbiased as it varies bit-widths.
 
 # Related
 

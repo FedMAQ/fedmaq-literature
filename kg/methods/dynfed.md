@@ -46,11 +46,15 @@ vectors.
 
 ## 5. FedMAQ relevance
 
-DynFed is a direct SOTA baseline and arguably the nearest neighbor to FedMAQ's thesis:
-adaptive quantization *plus* KD aggregation under heterogeneity. Its gradient-norm
-bit-width rule, uncertainty-based teacher selection, and (local + aggregation +
-distillation) error decomposition are reusable in FedMAQ's scheduler, aggregator, and
-convergence analysis.
+DynFed is excluded from the primary benchmark grid (no public codebase) but is the
+nearest neighbor to [FedMAQ](/methods/fedmaq.md)'s thesis: adaptive quantization
+*plus* KD aggregation under heterogeneity. FedMAQ reproduces its core
+mechanism — memory-capped, gradient-norm-adaptive bit-width refined by
+server-side distillation, minus data-richness — as a DynFed-style ablation
+reference arm; FedMAQ's added data-richness signal and combination-logic study
+isolate what it contributes over this design. FedMAQ does **not** adopt DynFed's
+uncertainty-based active teacher selection — its ensemble averages all
+participating clients' soft labels with equal weight.
 
 # Related
 

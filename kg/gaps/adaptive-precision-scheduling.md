@@ -33,12 +33,17 @@ precision, and none couples that combination to a distillation signal.
 
 ## FedMAQ's angle
 
-FedMAQ targets exactly this combination question for the client-level scalar: it
-evaluates linear, multiplicative, gradient-primary data-modulated, and
-threshold-based rules for fusing the gradient-norm and data-richness signals within a
-hard memory ceiling, and reports which interaction generalizes across skew. It does
-*not* resolve the layer-wise or explicit-round scheduling sub-problems, which remain
-open.
+[FedMAQ](/methods/fedmaq.md) targets exactly this combination question for the
+client-level scalar: it evaluates a resource-only control plus linear, multiplicative,
+gradient-primary data-modulated, and threshold-based rules for fusing the
+gradient-norm and data-richness signals within a hard memory ceiling. The candidates'
+internal weights are fixed by one shared convention rather than tuned per formula, so
+the comparison isolates combination *structure*. The winner is selected by a
+pre-registered rule — least cumulative communication to a per-dataset/skew target
+accuracy (90% of uncompressed FedAvg), subject to an accuracy-floor disqualification —
+on CIFAR-10 across both skew regimes, then generalization-tested on the remaining
+datasets/skews via the main benchmark grid. It does *not* resolve the layer-wise or
+explicit-round scheduling sub-problems, which remain open.
 
 ## Sources
 

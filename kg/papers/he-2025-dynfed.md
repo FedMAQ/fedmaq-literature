@@ -118,16 +118,33 @@ Under assumptions of \(L\)-smoothness, bounded variance \(\sigma^2\), bounded qu
 
 **DynFed as a Baseline:** DynFed can serve as a strong baseline for FedMAQ (Communication-Efficient FL via Multi-Adaptive Quantization and Knowledge Distillation). It demonstrates that adaptive quantization combined with KD-based aggregation outperforms fixed-quantization methods (FedPAQ, DAdaQuant) and vanilla KD methods (FedKD) under heterogeneous settings.
 
-**Techniques Integrable into FedMAQ:**
-- **Dynamic Bit-Width Adjustment (Eq. 4):** The gradient-norm-based adaptation rule can be directly adopted or extended in FedMAQ to handle varying client capacities.
-- **Multi-Teacher Distillation with Active Selection:** The uncertainty-based teacher selection (Eq. 5-8) and diversity penalty can be integrated into FedMAQ’s aggregation module to improve knowledge transfer from heterogeneous quantized models.
-- **Server-Side Distillation:** The idea of performing distillation entirely on the server (reducing client burden) aligns with FedMAQ’s goal of communication efficiency.
-- **Convergence Analysis Framework:** The proof structure (local update error + aggregation error + distillation error) provides a template for analyzing FedMAQ’s convergence under similar assumptions.
+**Techniques FedMAQ adopts, adapts, or declines from DynFed:**
+- **Dynamic Bit-Width Adjustment (Eq. 4):** [FedMAQ](/methods/fedmaq.md) replaces
+  DynFed's recursive, inertial gradient-norm tracker with a direct per-round
+  gradient-norm measurement, combined with a data-richness signal DynFed omits.
+- **Multi-Teacher Distillation with Active Selection:** FedMAQ does **not** adopt
+  DynFed's uncertainty-based active teacher selection or diversity penalty — its
+  server ensemble averages soft labels from all participating clients with equal
+  weight. DynFed's core mechanism (memory-capped, gradient-adaptive bit-width +
+  server multi-teacher distillation, without the data-richness signal) is instead
+  reproduced as an ablation reference arm (Configuration 4) precisely because
+  DynFed's non-reproducible active selection step cannot be included in the
+  primary benchmark grid.
+- **Server-Side Distillation:** The idea of performing distillation entirely on
+  the server (reducing client burden) is shared with FedMAQ's design.
+- **Convergence Analysis Framework:** The proof structure (local update error +
+  aggregation error + distillation error) is a template DynFed offers for future
+  convergence analysis; the current thesis scope reports empirical variability
+  (mean/std over seeds) rather than a convergence proof.
 
-**Potential Extensions for FedMAQ:**
-- Replace the public dataset requirement with a synthetic data generator or a small subset of global model’s own predictions.
-- Combine with gradient compression (e.g., sparsification) to further reduce uplink communication.
-- Extend the teacher selection to consider both bit-width and data distribution similarity (e.g., using prototype-based metrics).
+**Extensions outside FedMAQ's current scope:**
+- Replacing the proxy dataset with a synthetic generator remains a candidate
+  future direction, not part of the current design (FedMAQ uses a real,
+  held-out, unlabeled proxy set).
+- Combining with gradient compression such as sparsification is explicitly
+  outside scope — FedMAQ is quantization-only (Chapter 1, Scope and Limitations).
+- Extending teacher selection with distribution-similarity metrics is future
+  work; the current design uses uniform-weight ensemble averaging, not selection.
 
 # Related
 

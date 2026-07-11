@@ -90,7 +90,7 @@ Federated Learning (FL) is presented as a paradigm to train models collaborative
 
 ## 5. FedMAQ Thesis Relevance
 
-- **Baseline Context:** This survey serves as a comprehensive reference mapping the landscape of edge AI optimization. It systematically defines the baseline compression strategies (pruning, quantization, knowledge distillation) that FedMAQ combines.
+- **Baseline Context:** This survey serves as a comprehensive reference mapping the landscape of edge AI optimization. It systematically defines the broader family of compression strategies (pruning, quantization, knowledge distillation), of which [FedMAQ](/methods/fedmaq.md) combines only quantization and knowledge distillation — pruning/sparsification is explicitly out of scope.
 - **Integration Potential:** The evaluation metrics (latency, throughput, energy per inference, memory utilization) defined in the paper represent the exact target optimization parameters for FedMAQ. Furthermore, the survey's discussion of MLOps pipelines under drift and federated learning variants validates the multi-adaptive approach of FedMAQ in heterogeneous and dynamic environments.
 
 # Related

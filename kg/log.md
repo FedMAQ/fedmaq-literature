@@ -27,3 +27,87 @@
 - **Lint**: Audited the bundle against `docs/llm-wiki.md` philosophy and `docs/okf.md` conformance. Structure, frontmatter, and link integrity were clean (0 broken links across 94 files, verified programmatically). Found two defects: (1) corrupted LaTeX subscripts in three paper nodes — [FedAvg](/papers/mcmahan-2017-fedavg.md), [DAdaQuant](/papers/honig-2022-dadaquant.md), [AdaDQ-KD](/papers/wang-2026-adadq-kd.md) — where `_{` had been mangled to `*{` during authoring, breaking equation rendering; (2) 9 of 39 paper nodes missing the `# Related` closing section required by `okf-paper-template.md`.
 - **Fix**: Repaired all corrupted LaTeX subscripts in the three affected paper nodes. Authored `# Related` sections for the 9 nodes that lacked them — [cui-2026-laq-hc](/papers/cui-2026-laq-hc.md), [hinton-2015-distillation](/papers/hinton-2015-distillation.md), [joseph-2026-air-quality](/papers/joseph-2026-air-quality.md), [le-2024-compression-survey](/papers/le-2024-compression-survey.md), [mao-2023-power-load](/papers/mao-2023-power-load.md), [mcmahan-2017-fedavg](/papers/mcmahan-2017-fedavg.md), [reisizadeh-2020-fedpaq](/papers/reisizadeh-2020-fedpaq.md), [singh-2026-smart-campus](/papers/singh-2026-smart-campus.md), [wang-2026-adadq-kd](/papers/wang-2026-adadq-kd.md) — linking each to thematically adjacent papers already present in the corpus. Re-verified: 0 broken links, 0 missing `# Related` sections, 0 corrupted LaTeX remaining.
 - **Revision (de-overclaim)**: Following the FedMAQ grilling pass, dialed the novelty framing in the gap/finding layer down from a "joint round × client × layer precision space" claim to the honest **multi-signal combination** contribution (client-level scalar bit-width; round-variation implicit; no layer-wise). Rewrote [adaptive-precision-scheduling](/gaps/adaptive-precision-scheduling.md) (retitled to the signal-combination question), [multi-adaptive-q-kd-scarcity](/gaps/multi-adaptive-q-kd-scarcity.md) (aligned niche to the combination-logic contribution over DynFed's resource+state design), and [heterogeneity-aware-quantization](/gaps/heterogeneity-aware-quantization.md) (clarified FedMAQ conditions on data *quantity* + training state, not distributional skew, and does **not** close the skew-aware-precision gap — distillation carries the statistical-heterogeneity load). Propagated the reframing to [no-unified-compression-heterogeneity-method](/findings/no-unified-compression-heterogeneity-method.md), [adaptive-quantization-beats-uniform](/findings/adaptive-quantization-beats-uniform.md), and [gaps/index](/gaps/index.md), removing residual "multi-axis"/"round × client × layer"/"skew-aware quantization" over-claims.
+
+## 2026-07-11
+
+- **Creation**: Authored [methods/fedmaq.md](/methods/fedmaq.md) — the thesis's own
+  algorithm, with no `introduced_by` paper node (deviation from
+  `okf-method-template.md`, documented here since FedMAQ is not introduced by a
+  corpus paper; its specification lives in the manuscript, cited in the node body).
+  Covers the two-tier precision-scaling design, the five-formulation study and its
+  pre-registered winner rule (least cumulative communication to a 90%-of-FedAvg
+  target accuracy, subject to an accuracy-floor guard), and the server-side
+  two-stage aggregation (parameter averaging then equal-weight ensemble
+  distillation), sourced from `chapter_3.tex` sections 3.3/3.5 and `chapter_4.tex`
+  sections 4.2/4.4 post-"grill and polish" finalization. Regenerated
+  [methods/index](/methods/index.md) (24 to 25 nodes) and the root
+  [index](/index.md) count.
+- **Fix (systemic de-overclaim sweep)**: The 2026-07-10 de-overclaim pass corrected
+  the gap/finding layer only; the method and paper layers still described FedMAQ
+  with the pre-scope-lock framing ("multi-adaptive across rounds and layers",
+  "varying bit-widths per layer/round", combining quantization with
+  sparsification/low-rank/pruning, and FedKD's mentee-mentor split as FedMAQ's
+  "base framework"). Swept and corrected roughly 20 files against the locked
+  `chapter_3.tex`/`chapter_4.tex` design: "multi-adaptive" means multiple adaptive
+  *signals* (resource, training-state, data-richness) combined into one
+  client-level, per-round scalar bit-width -- no layer axis, no sparsification, no
+  local client-side distillation or mentor/mentee training (all error-mitigation is
+  server-side, deferred entirely from the student-only client). Fixed nodes:
+  [cfd](/methods/cfd.md), [fedkd](/methods/fedkd.md), [feddt](/methods/feddt.md),
+  [dadaquant](/methods/dadaquant.md), [fedpaq](/methods/fedpaq.md),
+  [qsgd](/methods/qsgd.md), [quantized-kd](/methods/quantized-kd.md),
+  [adagq](/methods/adagq.md), [laq-hc](/methods/laq-hc.md),
+  [dynfed](/methods/dynfed.md) (the last also removing the false claim that
+  DynFed's active/uncertainty-based teacher selection is reusable in FedMAQ, which
+  uses equal-weight ensemble averaging); concepts
+  [quantization](/concepts/quantization.md) and
+  [adaptive-bit-width](/concepts/adaptive-bit-width.md); and the "FedMAQ Thesis
+  Relevance" sections of papers [liu-2023-adagq](/papers/liu-2023-adagq.md),
+  [cui-2026-laq-hc](/papers/cui-2026-laq-hc.md),
+  [wu-2022-fedkd](/papers/wu-2022-fedkd.md),
+  [qu-2020-quantization-kd](/papers/qu-2020-quantization-kd.md),
+  [alistarh-2017-qsgd](/papers/alistarh-2017-qsgd.md),
+  [li-2020-fedprox](/papers/li-2020-fedprox.md),
+  [honig-2022-dadaquant](/papers/honig-2022-dadaquant.md),
+  [joseph-2026-air-quality](/papers/joseph-2026-air-quality.md),
+  [sattler-2022-cfd](/papers/sattler-2022-cfd.md),
+  [he-2025-dynfed](/papers/he-2025-dynfed.md),
+  [he-2025-feddt](/papers/he-2025-feddt.md),
+  [sater-2021-anomaly-detection](/papers/sater-2021-anomaly-detection.md), and
+  [cajas-ordonez-2025-edge-computing-survey](/papers/cajas-ordonez-2025-edge-computing-survey.md).
+  Verified via widened re-grep (`layer|axes|axis|mentee|mentor|sparsi|low-rank|pruning`
+  scoped to FedMAQ-context sentences): zero remaining stale hits.
+- **Enrichment**: Added the formulation-study winner rule and the equal-weight (not
+  active-selection) ensemble-distillation detail to
+  [adaptive-precision-scheduling](/gaps/adaptive-precision-scheduling.md) and
+  [multi-adaptive-q-kd-scarcity](/gaps/multi-adaptive-q-kd-scarcity.md), each now
+  linking to [methods/fedmaq.md](/methods/fedmaq.md) as the canonical description
+  rather than re-paraphrasing FedMAQ's design independently. The bits-to-accuracy
+  winner-rule metric was judged literature-derived (already the subject of
+  [communication-efficiency](/concepts/communication-efficiency.md)) and folded
+  there rather than given a separate Concept node; the formulation-study
+  winner-rule procedure itself is FedMAQ-coined and lives in
+  [methods/fedmaq.md](/methods/fedmaq.md) section 3 instead of a single-referent
+  Concept node.
+
+## 2026-07-11 (completeness pass)
+
+- **Audit**: full structural sweep of the bundle — frontmatter required fields
+  (all 5 node types), presence of `# Related` sections, root-absolute link
+  resolution (88 unique links, 0 broken), incoming-link check (0 orphan nodes),
+  `resource:` path existence (all 39 paper nodes), and node counts vs. the
+  figures stated in `index.md` and each section's `index.md` (39/25/10/8/6, all
+  consistent).
+- **Fix**: `findings/index.md` still listed the pre-sweep title "No method
+  jointly optimizes multi-axis compression and heterogeneity robustness" for
+  [no-unified-compression-heterogeneity-method.md](/findings/no-unified-compression-heterogeneity-method.md),
+  which the 2026-07-11 de-overclaim pass had already retitled to "No existing
+  method combines multi-signal adaptive compression with heterogeneity
+  robustness" inside the node itself — the index summary line was never synced.
+  Corrected.
+- **Verified, no change needed**: `concepts/index.md`'s "across rounds, clients,
+  and layers" line for [adaptive-bit-width](/concepts/adaptive-bit-width.md) is
+  a general-literature description (layer-wise is a real variant in FedDT), not
+  a FedMAQ claim — consistent with the node's own frontmatter and its Section 2
+  scoping. `gaps/index.md` and `papers/index.md` blurbs checked against their
+  target nodes; no drift found.

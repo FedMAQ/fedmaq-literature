@@ -47,8 +47,11 @@ detailed); non-IID gains smaller than IID.
 
 The earliest paper in the corpus to fuse adaptive quantization with federated
 distillation — essentially a prototype of the FedMAQ thesis, and a baseline. Its
-bandwidth→bits formula and FKD loss are integrable; FedMAQ extends it with per-layer /
-multi-level precision, joint teacher-student training, and multi-teacher distillation.
+bandwidth-driven bit-width formula is a precedent for resource-signal
+quantization; [FedMAQ](/methods/fedmaq.md) extends the *signal* set (resource +
+training-state + data-richness, not per-layer) and replaces its single fixed
+teacher-then-student pipeline with server-side multi-teacher ensemble
+distillation — FedMAQ clients never host a local teacher.
 
 # Related
 

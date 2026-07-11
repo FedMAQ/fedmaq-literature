@@ -21,11 +21,13 @@ variance versus bits: fewer levels shrink the payload but inflate
 ## 2. Why it matters for FedMAQ
 
 Uplink communication is the dominant bottleneck in federated learning over edge and
-IoT links. Quantization is the primary lever FedMAQ pulls to cut per-round payload,
-and the "multi-adaptive" in the thesis name refers to allocating precision jointly
-across layers, clients, and rounds rather than using a single fixed bit-width. The
-open question FedMAQ inherits is how quantization noise interacts with non-IID drift
-and with the distillation signal.
+IoT links. Quantization is the primary lever [FedMAQ](/methods/fedmaq.md) pulls to
+cut per-round payload, and the "multi-adaptive" in the thesis name refers to
+allocating one client-level, per-round scalar bit-width from *multiple adaptive
+signals* (resource, training-state, data-richness) rather than a single fixed
+bit-width — not to resolving precision per layer. The open question FedMAQ
+inherits is how quantization noise interacts with non-IID drift and with the
+distillation signal.
 
 ## 3. Variants & dimensions
 

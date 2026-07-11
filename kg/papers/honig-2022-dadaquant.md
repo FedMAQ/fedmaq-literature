@@ -122,7 +122,10 @@ DAdaQuant provides:
 - A **design pattern** for two-level adaptive quantization (time + client).
 - **Closed-form formulas** for client-level quantization that are computationally cheap.
 - **Empirical baselines** across multiple datasets and models (Synthetic, FEMNIST, Sent140, Shakespeare, CelebA) with clear compression-accuracy curves.
-- A **building block** for FedMAQ: use DAdaQuant for pure quantization, then extend with multi-adaptation (e.g., per-layer) and KD to achieve further gains.
+- A **building block** for FedMAQ: [FedMAQ](/methods/fedmaq.md) replaces DAdaQuant's
+  time+client axes with resource, training-state, and data-richness signals
+  combined at a per-client, per-round scalar granularity, and adds server-side KD
+  to achieve further gains.
 
 # Related
 

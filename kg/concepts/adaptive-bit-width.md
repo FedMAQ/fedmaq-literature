@@ -20,10 +20,13 @@ from a scalar knob to a policy.
 ## 2. Why it matters for FedMAQ
 
 This is the core mechanism of the thesis: "multi-adaptive quantization" means
-precision adapts along multiple axes simultaneously. A well-designed schedule spends
-coarse bits early (when gradients are noisy anyway) and finer bits late, and gives
-low-bandwidth stragglers coarser precision to equalize round time. FedMAQ's
-contribution is to unify these axes and couple the schedule to a distillation signal.
+precision adapts to multiple *signals* — resource (memory), training-state
+(gradient norm), and data-richness (dataset size) — combined into one scalar
+bit-width per client per round, not to multiple precision *axes* (no layer-wise
+resolution; round-to-round variation is an implicit consequence of the
+gradient-norm signal, not an explicit time schedule). [FedMAQ](/methods/fedmaq.md)'s
+contribution is to study how these signals should combine and to couple the
+resulting schedule to server-side distillation.
 
 ## 3. Variants & dimensions
 

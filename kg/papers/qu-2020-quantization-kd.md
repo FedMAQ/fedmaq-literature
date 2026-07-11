@@ -159,8 +159,13 @@ This paper is highly relevant to **FedMAQ (Communication-Efficient FL via Multi-
 - The idea of using a teacher trained with quantized FL to then distill smaller models is directly usable in FedMAQ's pipeline.
 
 ### Gaps addressed by FedMAQ:
-- FedMAQ could extend this work by supporting multiple quantization levels per layer, dynamic switching between quantization and sparsification, or joint training of teacher and student.
-- FedMAQ could also address security and Non-IID robustness more thoroughly.
+- [FedMAQ](/methods/fedmaq.md) extends this work's single bandwidth signal with a
+  resource/training-state/data-richness signal set at a per-client, per-round
+  scalar granularity (not per-layer), and replaces its fixed teacher-then-student
+  pipeline with server-side multi-teacher ensemble distillation — it does not add
+  sparsification, which is outside its quantization-only scope.
+- FedMAQ addresses Non-IID robustness via this server-side distillation stage,
+  which is predicted to matter more under severe skew.
 
 **Conclusion:** Qu et al. (2020) provides a foundational approach that FedMAQ builds upon and improves, making it both a strong baseline and a source of integrable techniques.
 

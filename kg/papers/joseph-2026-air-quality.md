@@ -43,7 +43,7 @@ timestamp: 2026-06-21T10:17:35Z
 
 - **Target application + baseline**: this is a direct smart-city environmental-sensing use case for communication-efficient FL and a concrete application baseline for FedMAQ, alongside energy/load-forecasting applications such as [Mao (power load)](/papers/mao-2023-power-load.md) and [Richter (electric load)](/papers/richter-2024-electric-load.md).
 - **Validates the FedMAQ premise on real data**: it empirically confirms that combining compression with FL yields large communication savings **without accuracy loss** in an IoT setting — the exact value proposition FedMAQ generalizes with *multi-adaptive* quantization and knowledge distillation.
-- **Key insight to integrate**: FL-CM applies a **static** compression stage. FedMAQ's contribution over such application work is to make compression **adaptive** (per client/layer/round) and to add distillation — so this paper is a strong "before" baseline against which FedMAQ's adaptivity gains can be measured on spatiotemporal forecasting tasks.
+- **Key insight to integrate**: FL-CM applies a **static** compression stage. FedMAQ's contribution over such application work is to make compression **adaptive** — driven by resource, training-state, and data-richness signals at a per-client, per-round scalar granularity, not per-layer — and to add server-side distillation, so this paper is a strong "before" baseline against which FedMAQ's adaptivity gains could be measured on spatiotemporal forecasting tasks (outside the thesis's current CIFAR-10/CIFAR-100/FEMNIST evaluation scope).
 
 # Related
 

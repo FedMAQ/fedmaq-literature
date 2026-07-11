@@ -45,10 +45,12 @@ stragglers, unlike DAdaQuant which keys on data size.
 
 ## 5. FedMAQ relevance
 
-AdaGQ is a strong adaptive-quantization baseline and a direct source of reusable
-machinery: the loss-decrease-rate adaptation rule and the bits-to-time client
-assignment are candidate modules for FedMAQ's multi-adaptive scheduler, which can
-unify them with a distillation objective and additional compression axes.
+AdaGQ is a strong adaptive-quantization baseline; its bits-to-time client
+assignment targets wall-clock straggler equalization, a diagnostic dimension in
+[FedMAQ](/methods/fedmaq.md)'s design (analytical cost model) rather than the
+quantity FedMAQ's soft-quality signals directly optimize. The loss-decrease-rate
+adaptation rule is a candidate alternative training-state signal outside FedMAQ's
+current (gradient-norm-based) formulation set.
 
 # Related
 

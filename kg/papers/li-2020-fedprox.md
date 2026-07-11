@@ -102,7 +102,7 @@ If \(\mathbb{E}_k[\|\nabla F_k(w) - \nabla f(w)\|^2] \le \sigma^2\), then \(B_\e
 - **Theoretical Framework:** FedProx’s convergence analysis under bounded dissimilarity provides a foundation for analyzing FedMAQ. The bounded dissimilarity assumption can be extended to account for additional errors from quantization and distillation.
 - **Adaptive \(\mu\):** The heuristic for tuning \(\mu\) based on loss behavior can be adapted to FedMAQ to dynamically balance the proximal effect against compression noise.
 
-**Key Differences:** FedMAQ’s core innovations – multi‑adaptive quantization (varying bit-widths per layer/round) and knowledge distillation (using a teacher model to guide local training) – are not present in FedProx. FedProx focuses on optimization stability, while FedMAQ focuses on communication reduction. Combining both could yield a highly communication‑efficient and robust FL system.
+**Key Differences:** FedMAQ's core innovations – multi‑adaptive quantization (a resource/training-state/data-richness-driven bit-width, per client per round, not per layer) and server-side proxy ensemble distillation (not a client-side teacher guiding local training) – are not present in FedProx. FedProx focuses on optimization stability, while FedMAQ focuses on communication reduction. Combining both could yield a highly communication‑efficient and robust FL system.
 
 # Related
 

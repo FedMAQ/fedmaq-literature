@@ -121,11 +121,11 @@ _(Note: effectively this performs a standard average update, but the division by
 
 - **Direct Baseline for FedMAQ:** The paper explicitly names its method **FedKD**, which serves as a strong baseline for the **FedMAQ** thesis (**Communication-Efficient FL via Multi-Adaptive Quantization and Knowledge Distillation**). FedKD demonstrates the effectiveness of combining knowledge distillation with gradient compression.
 - **Integrable Techniques:**
-  - **Adaptive Mutual Distillation:** The core idea of using small mentee models for communication and adaptively weighting distillation losses based on prediction correctness can be directly integrated into FedMAQ to improve model quality under high compression ratios.
-  - **Dynamic SVD Compression:** The SVD-based compression with a dynamic energy threshold (Eq. 9) is a natural complement to quantization methods. FedMAQ could adopt a similar dynamic scheduling for its quantization bit-widths or combine quantization with SVD for multi-level compression.
-  - **Mentee-Mentor Paradigm:** This architecture provides a principled way to separate model size (used locally for personalization) from communication size (small shared model), which FedMAQ can adopt as its base framework.
+  - **Adaptive Mutual Distillation:** FedKD's mutual distillation runs *locally*, between a client's own mentor and mentee. [FedMAQ](/methods/fedmaq.md) does not adopt this — clients perform no local distillation at all; error mitigation is deferred entirely to server-side proxy ensemble distillation over the participating clients' (quantized) student updates.
+  - **Dynamic SVD Compression:** The SVD-based compression with a dynamic energy threshold (Eq. 9) is a natural point of contrast with quantization: FedMAQ uses gradient quantization exclusively and does not combine it with SVD.
+  - **Mentee-Mentor Paradigm:** This architecture separates a large local model from a small communicated one. FedMAQ does **not** adopt this as its base framework — its clients train only a single compact student network, with no local teacher/mentor counterpart.
 
-- **Comparison Point:** FedKD achieves up to **94.89% communication reduction** while matching centralized performance. This sets a high bar for FedMAQ, which can aim for similar or better compression ratios by introducing **multiple adaptive quantization strategies** (e.g., per-layer, per-round) that may outperform the single SVD-based approach of FedKD, especially on hardware that is quantization-friendly rather than SVD-friendly.
+- **Comparison Point:** FedKD achieves up to **94.89% communication reduction** while matching centralized performance. This sets a high bar for FedMAQ, which pursues comparable or better compression via a multi-adaptive *quantization* schedule (resource, training-state, and data-richness signals combined into one client-level, per-round scalar bit-width — not per-layer) rather than FedKD's SVD-based approach, on hardware that is quantization-friendly rather than SVD-friendly.
 
 # Related
 

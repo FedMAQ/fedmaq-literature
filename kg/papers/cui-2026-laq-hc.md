@@ -143,11 +143,11 @@ Thus LAQ-HC achieves \(O(1/\sqrt{T})\) convergence rate, same order as non-compr
 
 **Integration Opportunities:**
 - **Knowledge Distillation (KD):** LAQ-HC does not use KD. FedMAQ could integrate LAQ-HC's adaptive quantization with KD to further reduce communication while preserving model accuracy. For example, clients could use LAQ-HC's impact-aware quantization for gradient compression, while the server employs KD to distill knowledge from multiple quantized updates.
-- **Multi-Adaptive Quantization:** LAQ-HC adapts quantization levels per client per round based on data quality and bandwidth. FedMAQ could extend this to multi-adaptive strategies, e.g., combining quantization with sparsification or low-rank approximation, as suggested in the paper's future work.
+- **Multi-Adaptive Quantization:** LAQ-HC adapts quantization levels per client per round based on data quality and bandwidth. [FedMAQ](/methods/fedmaq.md) extends the *signal set* driving that adaptation (resource, training-state, data-richness) rather than the paper's other suggested direction of combining quantization with sparsification or low-rank approximation, which falls outside FedMAQ's quantization-only scope.
 - **Lightweight Impact Estimation:** The hyperbolic tangent fitting method is computationally cheap and could be adopted by FedMAQ to estimate the effect of different compression levels on training, enabling more informed client selection and resource allocation.
 
 **Key Differences to Address:**
-- LAQ-HC focuses solely on quantization; FedMAQ aims to combine multiple compression techniques (quantization, sparsification, KD).
+- LAQ-HC focuses solely on quantization; FedMAQ adds knowledge distillation but, like LAQ-HC, stays within quantization for compression — it does not add sparsification.
 - LAQ-HC does not consider privacy beyond standard FL; FedMAQ may incorporate differential privacy or blockchain-based mechanisms.
 - LAQ-HC's convergence analysis assumes unbiased quantization; FedMAQ may need to handle biased compression methods.
 

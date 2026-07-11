@@ -2,7 +2,14 @@
 
 `type: Method` nodes for concrete FL algorithms — one per algorithm, cross-linked to
 the [papers](/papers/) that introduce or evaluate them and the
-[concepts](/concepts/) they instantiate. Grouped by family below (24 nodes).
+[concepts](/concepts/) they instantiate. Grouped by family below (25 nodes).
+
+## This thesis
+
+- [FedMAQ](/methods/fedmaq.md) - multi-adaptive (resource + training-state +
+  data-richness) client-level quantization plus server-side proxy ensemble
+  distillation. No `introduced_by` paper node — this thesis's own algorithm; see
+  the node for its manuscript source sections.
 
 ## FL core, heterogeneity & aggregation
 

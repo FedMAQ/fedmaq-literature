@@ -43,9 +43,10 @@ adds server compute and clients bear a local distillation step.
 ## 5. FedMAQ relevance
 
 CFD is the closest baseline for FedMAQ's *soft-label* compression: its constrained
-quantization and delta coding are directly reusable. Its bit-width \(b\) is static —
-FedMAQ makes it multi-adaptive across rounds and layers and can combine soft-label
-compression with adaptive client workloads to relieve CFD's client-side overhead.
+quantization and delta coding are directly reusable, though FedMAQ compresses
+gradients rather than logits. Its bit-width \(b\) is static — [FedMAQ](/methods/fedmaq.md)
+makes it multi-adaptive, driven by resource, training-state, and data-richness
+signals at a per-client, per-round scalar granularity (no layer axis).
 
 # Related
 
