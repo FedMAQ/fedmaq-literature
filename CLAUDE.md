@@ -1,6 +1,6 @@
 # FedMAQ Literature — Agent Index
 
-**New session:** [../fedmaq-experiments/HANDOFF.md](../fedmaq-experiments/HANDOFF.md)
+**Session continuity:** `.claude/project/changelog.md`
 
 This repo has two layers: a **raw** converted-text layer (`markdown/`) and a
 **curated** OKF knowledge-graph layer (`kg/`). Reason over `kg/`; drop to
@@ -14,11 +14,12 @@ read over these directories.
 | Paper listing           | `kg/papers/index.md`                                             |
 | Converted full text     | `markdown/{slug}/paper.md` (+ `meta.yaml`)                       |
 | Paper status / registry | `.claude/project/paper_registry.md`                              |
-| OKF spec                | `SPEC.md`                                                        |
+| OKF spec                | `docs/okf.md`                                                    |
 | Bundle conventions      | `.claude/rules/kg-conventions.md`                                |
+| Agent memory policy     | `.claude/rules/agent-memory.md`                                  |
 | Node templates          | `.claude/rules/okf-paper-template.md`, `okf-finding-template.md` |
 | Source PDFs (pipeline)  | `papers/` (do not read in chat)                                  |
-| Domain rules (sibling)  | `../fedmaq-experiments/.cursor/rules/`                           |
+| Domain rules (sibling)  | `../fedmaq-experiments/.claude/rules/`                           |
 | CLI (conversion only)   | `uv run fedmaq-lit convert` / `list-slugs`                       |
 
 ## Conventions
