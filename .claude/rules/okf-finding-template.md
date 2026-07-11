@@ -1,9 +1,3 @@
----
-description: OKF Finding node template (kg/findings/{topic}.md) — Phase 2+
-globs: kg/findings/**
-alwaysApply: false
----
-
 # OKF Finding Node Template
 
 A Finding node consolidates evidence across papers into one cross-cutting claim.
@@ -34,4 +28,4 @@ timestamp: <ISO-8601 Z>
 - `# Related` — root-absolute links to supporting paper/method/concept nodes.
 
 Sources are the curated paper nodes (`/papers/{slug}.md`); drop to
-`markdown/{slug}/paper.md` only to verify an exact figure. No emojis.
+`markdown/{slug}/paper.md` only to verify an exact figure.

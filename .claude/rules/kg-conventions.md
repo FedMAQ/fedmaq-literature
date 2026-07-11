@@ -1,8 +1,3 @@
----
-description: OKF knowledge-graph bundle conventions (kg/)
-alwaysApply: true
----
-
 # Knowledge-Graph Conventions
 
 The repo has two layers. Reason over the curated layer; cite the raw layer.
@@ -31,6 +26,7 @@ The repo has two layers. Reason over the curated layer; cite the raw layer.
 - No vector store. Retrieval is grep + read over `markdown/` and `kg/`.
 - Cross-repo changes (`fedmaq-experiments`, `fedmaq-analyses`,
   `fedmaq-manuscript`) are made in a session scoped to that repo, using its own
-  rules directory (`.claude/rules/` for experiments and manuscript; `analyses`
-  and `presentations` are still on `.cursor/rules/` pending their own
-  migration).
+  `.claude/rules/` directory.
+- **Do not parse `papers/*.pdf` in agent context.** Reason over
+  `kg/papers/{slug}.md`; drop to `markdown/{slug}/paper.md` for exact quotes
+  and equations. PDF conversion runs only via `fedmaq-lit convert`.

@@ -1,9 +1,3 @@
----
-description: OKF Paper node template (kg/papers/{slug}.md)
-globs: kg/papers/**
-alwaysApply: false
----
-
 # OKF Paper Node Template
 
 Each `kg/papers/{slug}.md` is an OKF node: YAML frontmatter, a five-section body,
@@ -41,5 +35,5 @@ timestamp: <ISO-8601 Z>
 - `# Citations` — `[1]` the raw conversion (`markdown/{slug}/paper.md`), `[2]`
   the source PDF path.
 
-Declarative, factual prose. No emojis. See `karimireddy-2020-scaffold.md` for a
+Declarative, factual prose. See `karimireddy-2020-scaffold.md` for a
 reference node.

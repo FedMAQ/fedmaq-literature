@@ -1,9 +1,3 @@
----
-description: OKF Method node template (kg/methods/{name}.md) — Phase 2
-globs: kg/methods/**
-alwaysApply: false
----
-
 # OKF Method Node Template
 
 A Method node describes one concrete FL algorithm — its mechanism, knobs, and the
@@ -44,5 +38,5 @@ timestamp: <ISO-8601 Z>
   instantiates, and its `/papers/` nodes.
 
 Source from the curated paper nodes (`/papers/{slug}.md`); drop to
-`markdown/{slug}/paper.md` only to verify an exact figure or equation. No emojis.
+`markdown/{slug}/paper.md` only to verify an exact figure or equation.
 Declarative, factual prose.

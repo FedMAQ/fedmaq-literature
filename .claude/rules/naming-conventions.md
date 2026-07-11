@@ -1,8 +1,3 @@
----
-description: Paper slug and bibkey naming from PDF filenames
-alwaysApply: true
----
-
 # Naming Conventions
 
 **Slug:** lowercase `{leadauthor}-{year}-{short-title}` derived from PDF filename, e.g. `he-2025-dynfed` from `He et al. - 2025 - DynFed...pdf`.

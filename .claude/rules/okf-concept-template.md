@@ -1,9 +1,3 @@
----
-description: OKF Concept node template (kg/concepts/{name}.md) — Phase 2
-globs: kg/concepts/**
-alwaysApply: false
----
-
 # OKF Concept Node Template
 
 A Concept node defines one cross-cutting idea once — quantization, knowledge
@@ -41,5 +35,5 @@ timestamp: <ISO-8601 Z>
   `/papers/` nodes.
 
 Source from the curated paper nodes (`/papers/{slug}.md`); drop to
-`markdown/{slug}/paper.md` only to verify an exact figure. No emojis. Declarative,
+`markdown/{slug}/paper.md` only to verify an exact figure. Declarative,
 factual prose.
