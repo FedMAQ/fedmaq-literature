@@ -40,7 +40,7 @@ proxy-based distillation, and decide which regime its target deployments occupy.
 ## 4. Methods & papers
 
 - Methods: [FedGen](/methods/fedgen.md), [FedProto](/methods/fedproto.md),
-  [FD + FAug](/methods/fd-faug.md), [FedDistill](/methods/feddistill.md).
+  [FD + FAug](/methods/fd-faug.md), [FedDistill (De-Biasing)](/methods/feddistill-debias.md).
 - Papers: [FedGen](/papers/zhu-2021-fedgen.md),
   [FedProto](/papers/tan-2022-fedproto.md),
   [FD + FAug](/papers/jeong-2023-feddistill-aug.md).

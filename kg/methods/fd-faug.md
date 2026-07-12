@@ -55,4 +55,6 @@ generative, data-side heterogeneity lever distinct from optimization-based corre
 - [Data-free distillation](/concepts/data-free-distillation.md)
 - [Communication efficiency](/concepts/communication-efficiency.md)
 - [FedGen](/methods/fedgen.md), [CFD](/methods/cfd.md), [FedDF](/methods/feddf.md)
+- [FedDistill](/methods/feddistill.md) — the FD component alone, as implemented as
+  the FedMAQ codebase's "FedDistill" baseline (no FAug/GAN augmentation)
 - [FD+FAug paper](/papers/jeong-2023-feddistill-aug.md)

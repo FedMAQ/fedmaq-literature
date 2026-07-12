@@ -40,7 +40,7 @@ knowledge without forcing weight agreement across dissimilar clients.
 - Methods: [FedProx](/methods/fedprox.md), [SCAFFOLD](/methods/scaffold.md),
   [FedDyn](/methods/feddyn.md), [MOON](/methods/moon.md),
   [FedNova](/methods/fednova.md), [FedProto](/methods/fedproto.md),
-  [FedDistill](/methods/feddistill.md).
+  [FedDistill (De-Biasing)](/methods/feddistill-debias.md).
 - Papers: [FedAvg](/papers/mcmahan-2017-fedavg.md),
   [FedProx](/papers/li-2020-fedprox.md),
   [SCAFFOLD](/papers/karimireddy-2020-scaffold.md).

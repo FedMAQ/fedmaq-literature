@@ -111,3 +111,33 @@
   a FedMAQ claim — consistent with the node's own frontmatter and its Section 2
   scoping. `gaps/index.md` and `papers/index.md` blurbs checked against their
   target nodes; no drift found.
+
+## 2026-07-12
+
+- **Fix (naming collision)**: [methods/feddistill.md](/methods/feddistill.md)
+  documented only Song et al. 2024's group-distillation/de-biasing mechanism
+  (`introduced_by: /papers/song-2024-feddistill.md`), but the FedMAQ codebase's
+  actual "FedDistill" baseline (`.claude/project/baseline_registry.md`, Pure KD
+  group) implements Jeong et al. 2023's per-label averaged-logit exchange (FD)
+  instead — both papers legitimately use variants of the name "FedDistill" for
+  unrelated mechanisms. Rewrote
+  [methods/feddistill.md](/methods/feddistill.md) to document Jeong's FD
+  mechanism (`introduced_by: /papers/jeong-2023-feddistill-aug.md`), scoped to
+  the FD component only (no FAug/GAN augmentation, to avoid duplicating
+  [methods/fd-faug.md](/methods/fd-faug.md), which already covered Jeong's full
+  paper method). Created
+  [methods/feddistill-debias.md](/methods/feddistill-debias.md) preserving
+  Song's mechanism verbatim under a disambiguated title. Cross-linked each new
+  node to its sibling for disambiguation. Repointed references in
+  [concepts/non-iid-heterogeneity.md](/concepts/non-iid-heterogeneity.md),
+  [concepts/data-free-distillation.md](/concepts/data-free-distillation.md),
+  and [concepts/knowledge-distillation.md](/concepts/knowledge-distillation.md)
+  to `feddistill-debias.md` (all three referenced Song's de-biasing/non-IID
+  mechanism in context); left
+  [methods/fedmaq.md](/methods/fedmaq.md) and [methods/fedkd.md](/methods/fedkd.md)
+  pointing at the corrected `feddistill.md`, since those are generic
+  "FedDistill baseline" references matching the codebase algorithm. Updated
+  [methods/index.md](/methods/index.md) (25 to 26 nodes) with a row for the new
+  node and a corrected description for `feddistill.md`. Left
+  `log.md`'s 2026-07-09 batch-3 entry unedited (historical record of what was
+  authored then; link still resolves).

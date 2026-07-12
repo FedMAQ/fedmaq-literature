@@ -41,7 +41,7 @@ sacrifices.
 ## 4. Methods & papers
 
 - Methods: [FedMD](/methods/fedmd.md), [FedDF](/methods/feddf.md),
-  [FedGen](/methods/fedgen.md), [FedDistill](/methods/feddistill.md),
+  [FedGen](/methods/fedgen.md), [FedDistill (De-Biasing)](/methods/feddistill-debias.md),
   [FedKD](/methods/fedkd.md), [FD + FAug](/methods/fd-faug.md),
   [CFD](/methods/cfd.md), [DynFed](/methods/dynfed.md), [FedDT](/methods/feddt.md),
   [AdaDQ-KD](/methods/adadq-kd.md), [AQFedAvg + FKD](/methods/quantized-kd.md),

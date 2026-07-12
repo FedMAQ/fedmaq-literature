@@ -1,57 +1,74 @@
 ---
 type: Method
 title: "FedDistill"
-description: "Global-to-local group distillation that de-biases local classifiers under non-IID data, splitting the KD loss over true / rich-sample / few-sample classes."
-tags: [distillation, heterogeneity, baseline]
-introduced_by: /papers/song-2024-feddistill.md
-timestamp: 2026-07-09T12:00:00Z
+description: "Federated Distillation (FD): clients exchange per-label averaged output logits instead of parameters; the server aggregates them into global per-label logit means broadcast as distillation targets, decoupling communication from model size."
+tags: [distillation, communication-efficiency, baseline]
+introduced_by: /papers/jeong-2023-feddistill-aug.md
+timestamp: 2026-07-12T00:00:00Z
 ---
 
 # FedDistill
 
-Global Model Distillation for Local De-Biasing: attacks non-IID *forgetting* of
-under-represented classes by restructuring the distillation loss, with no extra
-communication.
+Federated Distillation (FD): an online co-distillation scheme whose communication
+payload depends on the model's **output dimension**, not its parameter count — the
+mechanism implemented as the "FedDistill" baseline in the FedMAQ codebase (the pure-KD
+group alongside FedMD).
 
 ## 1. Mechanism
 
-Cross-entropy gives positive gradient to the true class and negative to others, so
-few-sample classes are forgotten locally. FedDistill decomposes the global-to-local KD
-loss into three group terms — true class (TC-KD), rich-sample classes (RC-KD), and
-few-sample classes (FC-KD), split at threshold \(\gamma=1/|\mathcal C|\) — combined as
-\( GD = \alpha_t TC + \alpha_r RC + \alpha_f FC \) (reducing to plain KL when all
-\(\alpha=1\)). It further decomposes each model into extractor + classifier and uses
-four global/local prediction paths, giving losses
-\( \mathcal L = CE + \beta_L\mathcal L_L + \beta_E\mathcal L_E + \beta_{FC}\mathcal L_{FC} \)
-to de-bias the local classifier while generalizing the extractor.
+Each client periodically computes its **per-label average output logits** over its
+local data and uploads them in place of model parameters. The server averages the
+per-label logits across clients holding each label into **global per-label logit
+means** \( \bar y^{(\ell)} \), and broadcasts these back as distillation targets. Each
+client then trains on its supervised loss plus a distillation term pulling its own
+per-label logits toward the corresponding global mean, at temperature \(T\):
+
+\[
+\ell_{local} = \ell_{CE}(f_k(x), y) + \gamma\, \mathrm{KL}\big(\sigma(f_k(x)/T)\,\lVert\,\sigma(\bar y^{(y)}/T)\big)
+\]
+
+\[
+\bar y^{(\ell)} = \frac{1}{|\mathcal K_\ell|}\sum_{k \in \mathcal K_\ell} \bar y_k^{(\ell)}
+\]
+
+No model weights are ever exchanged — only a tensor of shape (#labels x output
+dimension) per round in each direction.
 
 ## 2. Key hyperparameters
 
-- Group weights \(\alpha_t,\alpha_r,\alpha_f\); path weights \(\beta_L,\beta_E,\beta_{FC}\).
-- Few-sample threshold \(\gamma\).
+- Distillation temperature \(T\).
+- Distillation loss weight \(\gamma\).
 
 ## 3. Communication & computation profile
 
-No communication reduction — it modifies only local training (per-round cost equals
-FedAvg) but reaches target accuracy in fewer rounds. Many hyperparameters; per-class
-computation scales with class count; assumes the global model is less biased than
-locals.
+Payload per round scales with \(|\mathcal Y| \times \dim(\text{output})\), independent
+of network width/depth — the key win for large models, and a strict communication
+reduction versus FedAvg (not merely a round-count reduction). Trades a modest accuracy
+gap (reported 95-98% of full-parameter FL) for that savings; logit-only knowledge
+conveys less than full parameters, which can limit performance on hard, high-capacity
+tasks.
 
 ## 4. Papers
 
-- Introduces: [FedDistill](/papers/song-2024-feddistill.md).
-- Reported to outperform [MOON](/papers/li-2021-moon.md) and FedNTD on non-IID.
+- Introduces: [FD + FAug](/papers/jeong-2023-feddistill-aug.md) (this method node
+  covers the FD component only; see [FD + FAug](/methods/fd-faug.md) for the full
+  paper method including the GAN-based Federated Augmentation component).
 
 ## 5. FedMAQ relevance
 
-A strong self-distillation baseline for FedMAQ's KD axis that is orthogonal to
-compression: its group-distillation loss and extractor/classifier split compose with
-adaptive quantization, e.g. prioritizing precision (or KD weight) for the few-sample
-classes most vulnerable to both non-IID forgetting and quantization noise.
+A canonical demonstration that exchanging **outputs instead of parameters** decouples
+communication from model size — complementary to FedMAQ's parameter-side quantization.
+FedMAQ can combine both: quantized weight updates plus a cheap per-label logit channel
+that is naturally robust to aggressive weight quantization. As the FedMAQ codebase's
+"pure KD" baseline, it isolates the distillation-only communication-efficiency
+contribution against FedMAQ's joint quantization + KD design.
 
 # Related
 
 - [Knowledge distillation](/concepts/knowledge-distillation.md)
-- [Non-IID data and client drift](/concepts/non-iid-heterogeneity.md)
-- [MOON](/methods/moon.md), [FedKD](/methods/fedkd.md)
-- [FedDistill paper](/papers/song-2024-feddistill.md)
+- [Communication efficiency](/concepts/communication-efficiency.md)
+- [FD + FAug](/methods/fd-faug.md) — full paper method (adds GAN augmentation)
+- [FedDistill (De-Biasing / Song 2024)](/methods/feddistill-debias.md) — unrelated
+  mechanism that shares the "FedDistill" name
+- [FedKD](/methods/fedkd.md)
+- [FD + FAug paper](/papers/jeong-2023-feddistill-aug.md)
