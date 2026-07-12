@@ -5,7 +5,7 @@ description: "Federated Learning (FL) suffers from severe performance degradatio
 authors: "Song et al."
 year: 2024
 bibkey: song-2024-feddistill
-baseline: FedDistill
+baseline: "FedDistill (name collision only — NOT the implemented FedMAQ baseline; see /methods/feddistill.md for that)"
 tags: [kd]
 resource: markdown/song-2024-feddistill/paper.md
 timestamp: 2026-06-21T05:24:36Z

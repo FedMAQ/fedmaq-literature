@@ -14,11 +14,8 @@ scheme that decouples communication from model size and rectifies data skew.
 
 ## 1. Mechanism
 
-- *FD*: each device periodically uploads its **per-label average output logits**; the
-  server averages them into global per-label logit means \( \bar y^{(\ell)} \), broadcast
-  as distillation targets. Local loss = supervised CE + \( \gamma\,\mathrm{KL}(\sigma(f_k(x)/T)\,\lVert\,\sigma(\bar y^{(y)}/T)) \).
-  Payload \(\propto |\mathcal Y|\times\dim(\text{output})\), independent of network
-  width/depth.
+- *FD*: exchanges per-label average output logits instead of parameters, decoupling
+  payload from model size. Full mechanism detail: [FedDistill](/methods/feddistill.md).
 - *FAug*: devices upload a few seed samples of missing classes; the server trains a GAN;
   the generator is downloaded so each device synthesizes missing-class samples locally,
   pushing its data toward IID and stabilizing the per-label logit statistics FD relies on.

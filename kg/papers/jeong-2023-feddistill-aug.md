@@ -46,7 +46,7 @@ with temperature \(T\) and distillation weight \(\gamma\).
 
 ## 5. FedMAQ Thesis Relevance
 
-- **Distillation-based communication reduction**: FD is an early, canonical demonstration that exchanging **outputs instead of parameters** decouples communication from model size — the core premise of FedMAQ's knowledge-distillation component, later refined by [FedDF](/papers/lin-2020-feddf.md), [CFD](/papers/sattler-2022-cfd.md), and [FedDistill](/papers/song-2024-feddistill.md).
+- **Distillation-based communication reduction**: FD is an early, canonical demonstration that exchanging **outputs instead of parameters** decouples communication from model size — the core premise of FedMAQ's knowledge-distillation component, later refined by [FedDF](/papers/lin-2020-feddf.md) and [CFD](/papers/sattler-2022-cfd.md). Note: a different, unrelated method also named "FedDistill" ([Song et al. 2024](/papers/song-2024-feddistill.md)) does not reduce communication and is not part of this lineage — see that paper's note for disambiguation.
 - **Data-side heterogeneity handling**: FAug tackles non-IID by generative augmentation rather than optimization correction — a complementary lever to the [FedProx](/papers/li-2020-fedprox.md)/[SCAFFOLD](/papers/karimireddy-2020-scaffold.md) family, and a precursor to data-free generators like [FedGen](/papers/zhu-2021-fedgen.md).
 - **Key insight to integrate**: FD's payload scales with output dimension while FedMAQ's quantization scales the *parameter* payload. FedMAQ can combine both — quantized parameter updates plus logit-level distillation — and use FD's per-label logit exchange as a cheap knowledge channel that is naturally robust to aggressive weight quantization.
 
