@@ -80,8 +80,8 @@ role is deferred entirely to the server-side ensemble.
 - \(T = 1.0\) — server-side KD softmax temperature.
 - \(R = 100\) — fixed communication-round budget (not a convergence guarantee).
 - Formulation weight convention (fixed, not tuned, identical across candidates):
-  \(\omega_1 = \omega_2\); modulation/threshold constants \(\kappa, \tau_g, \tau_n\)
-  each held at one documented default.
+  \(\omega_1 = \omega_2\); modulation/threshold constants \(\kappa = 1.0\),
+  \(\tau_g = \tau_n = 0.5\) each held at one documented default.
 
 ## 3. Formulation study and winner rule
 
