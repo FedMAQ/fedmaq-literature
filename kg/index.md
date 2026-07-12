@@ -4,7 +4,7 @@ okf_version: "0.1"
 
 # FedMAQ Knowledge Graph
 
-An [Open Knowledge Format](../SPEC.md) bundle for the **FedMAQ** thesis —
+An [Open Knowledge Format](../docs/okf.md) bundle for the **FedMAQ** thesis —
 _Communication-Efficient Federated Learning via Multi-Adaptive Quantization and
 Knowledge Distillation_. This bundle is the curated, agent- and human-readable
 layer over the paper corpus: paper nodes plus the methods, concepts, findings,
