@@ -1,0 +1,19 @@
+slug: sandler-2018-mobilenetv2
+pdf: papers/Others/Sandler et al. - 2018 - MobileNetV2 Inverted Residuals and Linear
+  Bottlenecks.pdf
+converter: docling
+converted_at: '2026-07-24T14:13:09.773516+00:00'
+page_count: 11
+char_count: 51638
+qa:
+  passed: true
+  confidence: 0.9752919443414179
+  mean_grade: excellent
+  low_grade: excellent
+  char_count: 51638
+  page_count: 11
+  reasons: []
+confidence:
+  mean_grade: excellent
+  low_grade: excellent
+  mean_score: 0.9752919443414179

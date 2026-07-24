@@ -2,7 +2,7 @@
 
 `type: Method` nodes for concrete FL algorithms — one per algorithm, cross-linked to
 the [papers](/papers/) that introduce or evaluate them and the
-[concepts](/concepts/) they instantiate. Grouped by family below (26 nodes).
+[concepts](/concepts/) they instantiate. Grouped by family below (27 nodes).
 
 ## This thesis
 
@@ -39,6 +39,7 @@ the [papers](/papers/) that introduce or evaluate them and the
 - [FedDistill (De-Biasing / Song 2024)](/methods/feddistill-debias.md) - group distillation de-biasing local classifiers over true/rich/few-sample classes; unrelated mechanism sharing the "FedDistill" name.
 - [FedKD](/methods/fedkd.md) - mentee-mentor mutual distillation plus dynamic SVD gradient compression.
 - [FD + FAug](/methods/fd-faug.md) - per-label logit exchange (payload independent of model size) with GAN-based augmentation.
+- [FedGEMS](/methods/fedgems.md) - larger server model trained via self-training/self-distillation plus entropy-weighted, misprediction-filtered ensemble distillation from clients.
 
 ## Joint quantization + knowledge distillation
 

@@ -1,8 +1,12 @@
 # Papers
 
-OKF `type: Paper` concept documents for the 39 papers in the FedMAQ thesis canon.
+OKF `type: Paper` concept documents for the 42 papers in the FedMAQ thesis canon.
 One node per paper; each links to its full-text conversion under `markdown/{slug}/` and
 cross-links related papers via `# Related`. Grouped by ingestion batch / theme.
+
+## Systems & Infrastructure
+
+- [Towards Federated Learning at Scale: System Design](bonawitz-2019-fl-scale.md) — Google's production FL system design for Android devices: synchronous round protocol, actor-model server, and Secure Aggregation, deployed to tens of millions of devices.
 
 ## Surveys & Reviews
 
@@ -40,6 +44,7 @@ cross-links related papers via `# Related`. Grouped by ingestion batch / theme.
 - [Ensemble Distillation for Robust Model Fusion in Federated Learning](lin-2020-feddf.md) — FedDF replaces parameter averaging with ensemble distillation on unlabeled/generated data, fusing heterogeneous client models (differing size, precision, or architecture) in far fewer rounds.  _(baseline: FedDF)_
 - [FedDistill: Global Model Distillation for Local Model De-Biasing in Non-IID Federated Learning](song-2024-feddistill.md) — Federated Learning (FL) suffers from severe performance degradation under non-IID data distributions.  _(name collision only — not the implemented FedMAQ "FedDistill" baseline; see [/methods/feddistill.md](../methods/feddistill.md))_
 - [Data-Free Knowledge Distillation for Heterogeneous Federated Learning](zhu-2021-fedgen.md) — FedGen performs data-free knowledge distillation by learning a lightweight generator from clients' prediction rules and broadcasting it to regularize local training, removing the proxy-dataset requirement.  _(baseline: FedGen)_
+- [FedGEMS: Federated Learning of Larger Server Models via Selective Knowledge Fusion](cheng-2021-fedgems.md) — FedGEMS trains a larger-capacity server model via selective, entropy-weighted ensemble distillation from clients plus server self-distillation, improving accuracy, robustness, and communication cost.  _(baseline: FedGEMS)_
 
 ## Quantization + Knowledge Distillation
 
@@ -60,3 +65,7 @@ cross-links related papers via `# Related`. Grouped by ingestion batch / theme.
 - [Edge-Assisted Smart Campus Energy Management using Federated Learning and Context-Aware Control](singh-2026-smart-campus.md) — University campuses consume large amounts of electricity with highly variable occupancy patterns.
 - [Federated Learning-Based Energy Management Systems for Privacy-Preserving Demand Forecasting in Smart Cities](sravanthi-2025-energy-management.md) — Traditional centralized Energy Management Systems (EMS) for smart cities face significant challenges regarding user data privacy, scalability, and latency.
 - [Spatiotemporal Federated Learning for Privacy-Preserving Load Forecasting and Appliance Scheduling in Smart City Homes](thangakrishnan-2025-spatiotemporal-fl.md) — Smart city home energy management faces three interconnected challenges: (1) privacy concerns from centralized collection of sensitive household energy data, (2) uncertainty in load forecasting and renewable.
+
+## Backbone Architectures
+
+- [MobileNetV2: Inverted Residuals and Linear Bottlenecks](sandler-2018-mobilenetv2.md) — A mobile-efficient CNN backbone built from inverted-residual linear-bottleneck blocks, improving the accuracy/compute/memory trade-off for classification, detection, and segmentation; a candidate client-model architecture, not an FL communication-efficiency method.

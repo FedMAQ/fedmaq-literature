@@ -43,6 +43,8 @@ distillation lowers bits-per-round while distillation limits the rounds penalty.
   [AdaGQ](/methods/adagq.md), [AQFedAvg + FKD](/methods/quantized-kd.md).
 - Survey: [Le 2024 compression survey](/papers/le-2024-compression-survey.md),
   [Cajas-Ordonez 2025 edge survey](/papers/cajas-ordonez-2025-edge-computing-survey.md).
+- Systems context (names bandwidth/compression as unimplemented production need):
+  [Bonawitz 2019 FL-at-scale](/papers/bonawitz-2019-fl-scale.md).
 
 # Related
 

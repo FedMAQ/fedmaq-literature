@@ -30,4 +30,8 @@ def markdown_dir(root: Path | None = None) -> Path:
 
 
 def registry_path(root: Path | None = None) -> Path:
-    return repo_root(root) / ".cursor" / "project" / "paper_registry.md"
+    r = repo_root(root)
+    claude_path = r / ".claude" / "project" / "paper_registry.md"
+    if claude_path.is_file():
+        return claude_path
+    return r / ".cursor" / "project" / "paper_registry.md"

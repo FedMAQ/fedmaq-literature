@@ -41,6 +41,8 @@ knowledge transfer to push the accuracy-vs-size frontier further than either alo
   [CFD](/methods/cfd.md), [DynFed](/methods/dynfed.md),
   [AQFedAvg + FKD](/methods/quantized-kd.md).
 - Survey: [Le 2024 compression survey](/papers/le-2024-compression-survey.md).
+- Backbone reference (architecture-level compute/memory efficiency, orthogonal to
+  communication compression): [MobileNetV2](/papers/sandler-2018-mobilenetv2.md).
 
 # Related
 

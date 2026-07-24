@@ -112,6 +112,28 @@
   scoping. `gaps/index.md` and `papers/index.md` blurbs checked against their
   target nodes; no drift found.
 
+## 2026-07-24
+
+- **Ingest**: Added 3 newly converted papers to the bundle (39 to 42 paper
+  nodes): [bonawitz-2019-fl-scale](/papers/bonawitz-2019-fl-scale.md) (Google's
+  production FL system design — new "Systems & Infrastructure" section in
+  [papers/index.md](/papers/index.md)), [cheng-2021-fedgems](/papers/cheng-2021-fedgems.md)
+  (FedGEMS — larger-server-model FL via selective, entropy-weighted ensemble
+  distillation; `baseline: FedGEMS`), and
+  [sandler-2018-mobilenetv2](/papers/sandler-2018-mobilenetv2.md) (MobileNetV2 —
+  mobile CNN backbone, new "Backbone Architectures" section; not an FL method,
+  no baseline field).
+- **Creation**: Authored [methods/fedgems.md](/methods/fedgems.md) (26 to 27
+  method nodes) for the FedGEMS algorithm, cross-linked from
+  [concepts/knowledge-distillation.md](/concepts/knowledge-distillation.md).
+- **Cross-links**: Added inbound references from
+  [concepts/communication-efficiency.md](/concepts/communication-efficiency.md)
+  to Bonawitz (systems context for the unimplemented-compression gap it names)
+  and from [concepts/model-compression.md](/concepts/model-compression.md) to
+  MobileNetV2 (backbone reference, explicitly distinguished from communication
+  compression). Updated node counts in [index.md](/index.md),
+  [papers/index.md](/papers/index.md), and [methods/index.md](/methods/index.md).
+
 ## 2026-07-12
 
 - **Fix (naming collision)**: [methods/feddistill.md](/methods/feddistill.md)

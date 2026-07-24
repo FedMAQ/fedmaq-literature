@@ -16,8 +16,8 @@ repo-relative paths that point **outside** the bundle.
 
 ## Sections
 
-- [Papers](papers/) — one `type: Paper` node per paper in the thesis canon (39). The core layer.
-- [Methods](methods/) — `type: Method` nodes for algorithms (FedAvg, SCAFFOLD, DAdaQuant, …) that papers introduce or compare against, plus [FedMAQ](methods/fedmaq.md) itself (25).
+- [Papers](papers/) — one `type: Paper` node per paper in the thesis canon (42). The core layer.
+- [Methods](methods/) — `type: Method` nodes for algorithms (FedAvg, SCAFFOLD, DAdaQuant, …) that papers introduce or compare against, plus [FedMAQ](methods/fedmaq.md) itself (27).
 - [Concepts](concepts/) — `type: Concept` nodes for cross-cutting ideas (quantization, knowledge distillation, non-IID / client drift, communication efficiency) (10).
 - [Findings](findings/) — `type: Finding` nodes synthesizing evidence across papers into claims relevant to the manuscript (8).
 - [Gaps](gaps/) — `type: Gap` nodes recording open problems FedMAQ targets (6).

@@ -45,7 +45,7 @@ sacrifices.
   [FedKD](/methods/fedkd.md), [FD + FAug](/methods/fd-faug.md),
   [CFD](/methods/cfd.md), [DynFed](/methods/dynfed.md), [FedDT](/methods/feddt.md),
   [AdaDQ-KD](/methods/adadq-kd.md), [AQFedAvg + FKD](/methods/quantized-kd.md),
-  [FedProto](/methods/fedproto.md).
+  [FedProto](/methods/fedproto.md), [FedGEMS](/methods/fedgems.md).
 - Foundational: [Hinton 2015 distillation](/papers/hinton-2015-distillation.md).
 - Surveys: [Qin 2025 KD survey](/papers/qin-2025-kd-survey.md),
   [Salman 2025 KD survey](/papers/salman-2025-kd-survey.md).
